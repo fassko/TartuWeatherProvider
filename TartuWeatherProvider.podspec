@@ -14,12 +14,14 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
 
   s.ios.deployment_target = '9.0'
   s.tvos.deployment_target = '10.0'
-  s.osx.deployment_target = '10.11'
 
   s.source_files = 'TartuWeatherProvider/Classes/**/*'
   
   s.library = "xml2"
   s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Fuzi/libxml2' }
+  
+  s.framework = 'Foundation'
+  s.framework = 'UIKit'
   
   s.dependency 'Alamofire', '~> 4.2'
   s.dependency 'Fuzi', '~> 1.0'
