@@ -1,0 +1,6 @@
+framework module Pods_TartuWeatherProvider_Tests {
+  umbrella header "Pods-TartuWeatherProvider_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,17 +8,33 @@
 
 import UIKit
 
+import TartuWeatherProvider
+
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
+  @IBOutlet var temperatureLabel: UILabel!
+  @IBOutlet var windLabel: UILabel!
+  @IBOutlet var lastMeasuredLabel: UILabel!
+  @IBOutlet var currentImage: UIImageView!
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+  
+    // Get weather data
+    TartuWeatherProvider.getWeatherData(completion: {(temperature, wind, lastMeasured) in
+    
+      self.temperatureLabel.text = temperature
+      self.windLabel.text = wind
+      self.lastMeasuredLabel.text = lastMeasured
+    })
+    
+    // Get current image
+    TartuWeatherProvider.getCurrentImage(completion: {(image) in
+      self.currentImage.image = image
+    })
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+  }
 
 }
 

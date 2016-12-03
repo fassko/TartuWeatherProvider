@@ -22,7 +22,7 @@ pod "TartuWeatherProvider"
 
 ## Author
 
-Kristaps Grinbergs, kristaps@qminderapp.com
+Kristaps Grinbergs, fassko@gmail.com
 
 ## License
 

@@ -1,0 +1,6 @@
+framework module Pods_TartuWeatherProvider_Example {
+  umbrella header "Pods-TartuWeatherProvider_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
