@@ -13,21 +13,40 @@ class TableOfContentsSpec: QuickSpec {
       it("Get weather data", closure: {
       
         var temperature:String?
+        var humidity:String?
+        var airPressure:String?
         var wind:String?
+        var precipitation:String?
+        var irradiationFlux:String?
         var measuredTime:String?
+        
+        var error:Error?
       
         waitUntil(action: {done in
-          TartuWeatherProvider.getWeatherData(completion: {(temp, w, t) in
-            temperature = temp
-            wind = w
-            measuredTime = t
+          TartuWeatherProvider.getWeatherData(completion: {(data, e) in
+            temperature = data?["temperature"]
+            humidity = data?["humidity"]
+            airPressure = data?["airPressure"]
+            wind = data?["wind"]
+            precipitation = data?["precipitation"]
+            irradiationFlux = data?["irradiationFlux"]
+            
+            error = e
+            
+            measuredTime = data?["measuredTime"]
           
             done()
           })
         })
+        
+        expect(error).toEventually(beNil())
       
         expect(temperature).toEventuallyNot(beNil())
+        expect(humidity).toEventuallyNot(beNil())
+        expect(airPressure).toEventuallyNot(beNil())
         expect(wind).toEventuallyNot(beNil())
+        expect(precipitation).toEventuallyNot(beNil())
+        expect(irradiationFlux).toEventuallyNot(beNil())
         expect(measuredTime).toEventuallyNot(beNil())
       
       })

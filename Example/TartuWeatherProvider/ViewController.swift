@@ -21,20 +21,37 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
   
+    getData()
+  }
+  
+  /**
+    Get weather data from provider
+   
+  */
+  func getData() {
     // Get weather data
-    TartuWeatherProvider.getWeatherData(completion: {(temperature, wind, lastMeasured) in
+    TartuWeatherProvider.getWeatherData(completion: {(data, error) in
     
-      self.temperatureLabel.text = temperature
-      self.windLabel.text = wind
-      self.lastMeasuredLabel.text = lastMeasured
+      self.temperatureLabel.text = data?["temperature"]
+      self.windLabel.text = data?["wind"]
+      self.lastMeasuredLabel.text = data?["measuredTime"]
     })
     
     // Get current image
     TartuWeatherProvider.getCurrentImage(completion: {(image) in
       self.currentImage.image = image
     })
-
   }
-
+  
+  /**
+    Refresh weather data
+    
+    - Parameters:
+      - sender: Action sender (UIButton)
+   
+  */
+  @IBAction func refresh(_ sender: Any) {
+    getData()
+  }
 }
 
