@@ -7,7 +7,15 @@
 //
 
 import Foundation
-import UIKit
+//import UIKit
+
+#if os(OSX)
+    import AppKit
+    public typealias LiveImage = NSImage
+#else
+    import UIKit
+    public typealias LiveImage = UIImage
+#endif
 
 import Alamofire
 import Fuzi
@@ -102,7 +110,7 @@ open class TartuWeatherProvider {
       - image: UIImage with current webcam image
    
   */
-  open class func getCurrentImage(completion:@escaping (_ image:UIImage) -> Void) {
+  open class func getCurrentImage(completion:@escaping (_ image:LiveImage) -> Void) {
     Alamofire.request("http://meteo.physic.ut.ee/webcam/uus/suur.jpg").responseImage { response in
 
       if let image = response.result.value {
