@@ -1,6 +1,6 @@
 {
   "name": "TartuWeatherProvider",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "summary": "Tartu weather provider from Tartu Physics faculty",
   "description": "Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.physic.ut.ee/?lang=en",
   "homepage": "https://github.com/fassko/TartuWeatherProvider",
@@ -13,11 +13,13 @@
   },
   "source": {
     "git": "https://github.com/fassko/TartuWeatherProvider.git",
-    "tag": "0.1.3"
+    "tag": "0.1.5"
   },
   "platforms": {
     "ios": "9.0",
-    "tvos": "10.0"
+    "tvos": "10.0",
+    "osx": "10.12",
+    "watchos": "3.0"
   },
   "source_files": "TartuWeatherProvider/Classes/**/*",
   "libraries": "xml2",
@@ -25,10 +27,10 @@
     "HEADER_SEARCH_PATHS": "$(SDKROOT)/usr/include/libxml2",
     "SWIFT_INCLUDE_PATHS": "$(SRCROOT)/Fuzi/libxml2"
   },
-  "frameworks": "UIKit",
+  "frameworks": "Foundation",
   "dependencies": {
     "Alamofire": [
-      "~> 4.2"
+      "~> 4.3"
     ],
     "Fuzi": [
       "~> 1.0"
