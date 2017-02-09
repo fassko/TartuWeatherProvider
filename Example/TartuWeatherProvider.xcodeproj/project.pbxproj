@@ -216,6 +216,7 @@
 					};
 					6303A3861DF22732005257C6 = {
 						CreatedOnToolsVersion = 8.1;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Manual;
 						TestTargetID = 607FACCF1AFB9204008FA782;
 					};
