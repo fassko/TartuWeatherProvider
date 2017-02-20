@@ -1,6 +1,6 @@
 {
   "name": "TartuWeatherProvider",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "summary": "Tartu weather provider from Tartu Physics faculty",
   "description": "Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.physic.ut.ee/?lang=en",
   "homepage": "https://github.com/fassko/TartuWeatherProvider",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/fassko/TartuWeatherProvider.git",
-    "tag": "0.1.5"
+    "tag": "0.1.6"
   },
   "platforms": {
     "ios": "9.0",
@@ -31,9 +31,6 @@
   "dependencies": {
     "Alamofire": [
       "~> 4.3"
-    ],
-    "Fuzi": [
-      "~> 1.0"
     ],
     "AlamofireImage": [
       "~> 3.2"

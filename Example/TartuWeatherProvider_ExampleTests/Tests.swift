@@ -12,28 +12,15 @@ class TableOfContentsSpec: QuickSpec {
       // get current weather data
       it("Get weather data", closure: {
       
-        var temperature:String?
-        var humidity:String?
-        var airPressure:String?
-        var wind:String?
-        var precipitation:String?
-        var irradiationFlux:String?
-        var measuredTime:String?
+        var data:WeatherData?
         
         var error:Error?
       
         waitUntil(action: {done in
-          TartuWeatherProvider.getWeatherData(completion: {(data, e) in
-            temperature = data?["temperature"]
-            humidity = data?["humidity"]
-            airPressure = data?["airPressure"]
-            wind = data?["wind"]
-            precipitation = data?["precipitation"]
-            irradiationFlux = data?["irradiationFlux"]
+          TartuWeatherProvider.getWeatherData(completion: {(d, e) in
+            data = d
             
             error = e
-            
-            measuredTime = data?["measuredTime"]
           
             done()
           })
@@ -41,13 +28,13 @@ class TableOfContentsSpec: QuickSpec {
         
         expect(error).toEventually(beNil())
       
-        expect(temperature).toEventuallyNot(beNil())
-        expect(humidity).toEventuallyNot(beNil())
-        expect(airPressure).toEventuallyNot(beNil())
-        expect(wind).toEventuallyNot(beNil())
-        expect(precipitation).toEventuallyNot(beNil())
-        expect(irradiationFlux).toEventuallyNot(beNil())
-        expect(measuredTime).toEventuallyNot(beNil())
+        expect(data?.temperature).toEventuallyNot(beNil())
+        expect(data?.humidity).toEventuallyNot(beNil())
+        expect(data?.airPressure).toEventuallyNot(beNil())
+        expect(data?.wind).toEventuallyNot(beNil())
+        expect(data?.precipitation).toEventuallyNot(beNil())
+        expect(data?.irradiationFlux).toEventuallyNot(beNil())
+        expect(data?.measuredTime).toEventuallyNot(beNil())
       
       })
       

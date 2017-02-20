@@ -2,13 +2,11 @@ PODS:
   - Alamofire (4.3.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - Fuzi (1.0.1)
   - Nimble (6.0.1)
-  - Quick (1.0.0)
-  - TartuWeatherProvider (0.1.5):
+  - Quick (1.1.0)
+  - TartuWeatherProvider (0.1.6):
     - Alamofire (~> 4.3)
     - AlamofireImage (~> 3.2)
-    - Fuzi (~> 1.0)
 
 DEPENDENCIES:
   - Nimble
@@ -22,11 +20,10 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  Fuzi: 851403654bac55675aaeed815d0c8a1d3e3d3e8b
   Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
-  Quick: 8024e4a47e6cc03a9d5245ef0948264fc6d27cff
-  TartuWeatherProvider: 5ac87ea7b0b9944e6b080b11859fc567333e614c
+  Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
+  TartuWeatherProvider: 3762fca8acf4639384959d548a1306d3ae2e4bc3
 
 PODFILE CHECKSUM: 345098d0b4b5499c79498018d99aa49d16777ae7
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0
