@@ -29,12 +29,14 @@ class ViewController: UIViewController {
    
   */
   func getData() {
+  
     // Get weather data
-    TartuWeatherProvider.getWeatherData(completion: {(data, error) in
-    
-      self.temperatureLabel.text = data?["temperature"]
-      self.windLabel.text = data?["wind"]
-      self.lastMeasuredLabel.text = data?["measuredTime"]
+    TartuWeatherProvider.getWeatherData(completion: {data, error in
+      if error == nil {
+        self.temperatureLabel.text = data?.temperature
+        self.windLabel.text = data?.wind
+        self.lastMeasuredLabel.text = data?.measuredTime
+      }
     })
     
     // Get current image

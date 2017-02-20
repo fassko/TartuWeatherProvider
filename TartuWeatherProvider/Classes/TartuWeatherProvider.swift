@@ -7,7 +7,6 @@
 //
 
 import Foundation
-//import UIKit
 
 #if os(OSX)
     import AppKit
@@ -18,7 +17,6 @@ import Foundation
 #endif
 
 import Alamofire
-import Fuzi
 import AlamofireImage
 
 
@@ -30,12 +28,10 @@ open class TartuWeatherProvider {
     
     - Parameters:
       - completion: Callback block when data is retrieved from server
-      - temperature: Current temperature in Celcius
-      - wind: Wind in m/s
-      - measuredTime: Measured time in format: DD Mon YY HH:MI:SS
+      - data: Weather data struct
    
   */
-  open class func getWeatherData(completion:@escaping (_ data:Dictionary<String, String>?, _ error:Error?) -> Void) {
+  open class func getWeatherData(completion:@escaping (_ data:WeatherData?, _ error:Error?) -> Void) {
     Alamofire.request("http://meteo.physic.ut.ee/en/frontmain.php?m=2").responseString(completionHandler: {
       response in
       
@@ -47,57 +43,18 @@ open class TartuWeatherProvider {
         
           case .success:
           
-            do {
-              // parse HTML file
-              let document = try HTMLDocument(string: response.result.value!, encoding: String.Encoding.utf8)
-
-              var weatherData:Dictionary<String,String> = [:]
-
-              let elements = document.css("td > b")
-              
-              // temperature
-              if let val = getValueFrom(elementsSet: elements, key: 0) {
-                weatherData["temperature"] = val
-              }
-              
-              // humidy
-              if let val = getValueFrom(elementsSet: elements, key: 1) {
-                weatherData["humidity"] = val
-              }
-              
-              // air pressure
-              if let val = getValueFrom(elementsSet: elements, key: 2) {
-                weatherData["airPressure"] = val
-              }
-              
-              // wind
-              if let val = getValueFrom(elementsSet: elements, key: 3) {
-                weatherData["wind"] = val
-              }
-              
-              // precipitation
-              if let val = getValueFrom(elementsSet: elements, key: 4) {
-                weatherData["precipitation"] = val
-              }
-              
-              // Irradiation flux
-              if let val = getValueFrom(elementsSet: elements, key: 5) {
-                weatherData["irradiationFlux"] = val
-              }
-              
-              // get measured time
-              if let val = document.css("td > small > i").first {
-                weatherData["measuredTime"] = val.stringValue
-              }
-              
-              completion(weatherData, nil)
-              
-            } catch let error {
+            if let temperature = response.result.value?.components(separatedBy: "Temperature</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</B>")[0].replacingOccurrences(of: "&deg;", with: "°"),
+              let humidity = response.result.value?.components(separatedBy: "Humidity</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</B>")[0],
+              let airPressure = response.result.value?.components(separatedBy: "Air pressure</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</B>")[0],
+              let wind = response.result.value?.components(separatedBy: "Wind</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</B>")[0],
+              let precipitation = response.result.value?.components(separatedBy: "Precipitation</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</B>")[0],
+              let irradiationFlux = response.result.value?.components(separatedBy: "Irradiation flux</A></TD><TD align=\"left\" width=\"45%\"><B>")[1].components(separatedBy: "</sup>")[0].replacingOccurrences(of: "<sup>", with: "^"),
+              let measuredTime = response.result.value?.components(separatedBy: "Measured</SMALL></TD><TD colspan=\"2\"><SMALL><I>")[1].components(separatedBy: "</I>")[0]
+            {
+              let data = WeatherData(temperature: temperature, humidity: humidity, airPressure: airPressure, wind: wind, precipitation: precipitation, irradiationFlux: irradiationFlux, measuredTime: measuredTime)
             
-              completion(nil, error)
-              
+              completion(data, nil)
             }
-          
         }
     })
   }
@@ -117,24 +74,5 @@ open class TartuWeatherProvider {
         completion(image)
       }
     }
-  }
-  
-  /**
-    Get value from elements set
-    
-    - Parameters:
-      - elementsSet: Elements set from HTMl document
-      - key: Key of element
-      
-    - Returns: String value of element
-   
-  */
-  class func getValueFrom(elementsSet:NodeSet, key:Int) -> String? {
-    
-    if elementsSet.count > key {
-      return elementsSet[key].stringValue
-    }
-    
-    return nil
   }
 }
