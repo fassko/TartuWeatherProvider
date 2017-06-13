@@ -40,8 +40,10 @@ class ViewController: UIViewController {
     })
     
     // Get current image
-    TartuWeatherProvider.getCurrentImage(completion: {(image) in
-      self.currentImage.image = image
+    TartuWeatherProvider.getCurrentImage(completion: {(image, error) in
+      if error == nil {
+        self.currentImage.image = image
+      }
     })
   }
   

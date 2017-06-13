@@ -1,11 +1,11 @@
 PODS:
-  - Alamofire (4.3.0)
+  - Alamofire (4.4.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - Nimble (6.0.1)
+  - Nimble (7.0.1)
   - Quick (1.1.0)
-  - TartuWeatherProvider (0.1.6):
-    - Alamofire (~> 4.3)
+  - TartuWeatherProvider (0.1.7):
+    - Alamofire (~> 4.4)
     - AlamofireImage (~> 3.2)
 
 DEPENDENCIES:
@@ -18,12 +18,12 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  Nimble: 1527fd1bd2b4cf0636251a36bc8ab37e81da8347
+  Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  TartuWeatherProvider: 3762fca8acf4639384959d548a1306d3ae2e4bc3
+  TartuWeatherProvider: 687d860d3da026831920744c73b879f65553e1b5
 
 PODFILE CHECKSUM: 345098d0b4b5499c79498018d99aa49d16777ae7
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

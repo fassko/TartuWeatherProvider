@@ -46,7 +46,7 @@ class TableOfContentsSpec: QuickSpec {
         waitUntil(action: {done in
           TartuWeatherProvider.getCurrentImage(completion: {(image) in
           
-            currentImage = image
+            currentImage = image.0
           
             done()
           })
