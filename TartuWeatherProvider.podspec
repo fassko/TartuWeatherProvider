@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TartuWeatherProvider'
-  s.version          = '0.1.6'
+  s.version          = '0.1.7'
   s.summary          = 'Tartu weather provider from Tartu Physics faculty'
 
   s.description      = <<-DESC
@@ -24,6 +24,6 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
   
   s.framework = 'Foundation'
   
-  s.dependency 'Alamofire', '~> 4.3'
+  s.dependency 'Alamofire', '~> 4.4'
   s.dependency 'AlamofireImage', '~> 3.2'
 end
