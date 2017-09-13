@@ -17,10 +17,10 @@ class TableOfContentsSpec: QuickSpec {
         var error:Error?
       
         waitUntil(action: {done in
-          TartuWeatherProvider.getWeatherData(completion: {(d, e) in
-            data = d
+          TartuWeatherProvider.getWeatherData(completion: {result in
+            data = result.value
             
-            error = e
+            error = result.error
           
             done()
           })
@@ -35,28 +35,9 @@ class TableOfContentsSpec: QuickSpec {
         expect(data?.precipitation).toEventuallyNot(beNil())
         expect(data?.irradiationFlux).toEventuallyNot(beNil())
         expect(data?.measuredTime).toEventuallyNot(beNil())
-      
+        expect(data?.liveImage.small).toEventuallyNot(beNil())
+        expect(data?.liveImage.large).toEventuallyNot(beNil())
       })
-      
-      // get current image from webcam
-      it("Get current image from webcam", closure: {
-      
-        var currentImage:UIImage?
-      
-        waitUntil(action: {done in
-          TartuWeatherProvider.getCurrentImage(completion: {(image) in
-          
-            currentImage = image.0
-          
-            done()
-          })
-        })
-        
-        expect(currentImage).toEventuallyNot(beNil())
-      
-      })
-    
     })
-    
   }
 }

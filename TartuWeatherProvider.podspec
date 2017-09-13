@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TartuWeatherProvider'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'Tartu weather provider from Tartu Physics faculty'
 
   s.description      = <<-DESC
@@ -19,11 +19,7 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
 
   s.source_files = 'TartuWeatherProvider/Classes/**/*'
   
-  s.library = "xml2"
-  s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2', 'SWIFT_INCLUDE_PATHS' => '$(SRCROOT)/Fuzi/libxml2' }
-  
   s.framework = 'Foundation'
   
-  s.dependency 'Alamofire', '~> 4.4'
-  s.dependency 'AlamofireImage', '~> 3.2'
+  s.dependency 'Alamofire', '~> 4.5'
 end

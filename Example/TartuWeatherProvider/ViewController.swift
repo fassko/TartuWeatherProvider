@@ -9,6 +9,7 @@
 import UIKit
 
 import TartuWeatherProvider
+import Kingfisher
 
 class ViewController: UIViewController {
 
@@ -31,18 +32,19 @@ class ViewController: UIViewController {
   func getData() {
   
     // Get weather data
-    TartuWeatherProvider.getWeatherData(completion: {data, error in
-      if error == nil {
-        self.temperatureLabel.text = data?.temperature
-        self.windLabel.text = data?.wind
-        self.lastMeasuredLabel.text = data?.measuredTime
-      }
-    })
     
-    // Get current image
-    TartuWeatherProvider.getCurrentImage(completion: {(image, error) in
-      if error == nil {
-        self.currentImage.image = image
+    TartuWeatherProvider.getWeatherData(completion: {result in
+      switch result {
+        case .failure(let error):
+          print("Can't get Weather Data \(error)")
+        
+        case .success(let data):
+        
+          self.temperatureLabel.text = data.temperature
+          self.windLabel.text = data.wind
+          self.lastMeasuredLabel.text = data.measuredTime
+        
+          self.currentImage.kf.setImage(with: URL(string: data.liveImage.large))
       }
     })
   }
