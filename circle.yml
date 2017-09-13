@@ -10,5 +10,5 @@ dependencies:
     - xcodebuild -showsdks
 test:
   override:
-    - set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone 7' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+    - set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
     - pod lib lint --verbose

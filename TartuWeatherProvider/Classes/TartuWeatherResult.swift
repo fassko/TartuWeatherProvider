@@ -1,6 +1,6 @@
 //
-//  Result.swift
-//  Alamofire
+//  TartuWeatherResult.swift
+//  Pods
 //
 //  Created by Kristaps Grinbergs on 13/09/2017.
 //
