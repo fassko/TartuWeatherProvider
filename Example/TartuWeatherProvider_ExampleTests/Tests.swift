@@ -16,15 +16,15 @@ class TableOfContentsSpec: QuickSpec {
         
         var error:Error?
       
-        waitUntil(action: {done in
+//        waitUntil(action: {done in
           TartuWeatherProvider.getWeatherData(completion: {result in
             data = result.value
             
             error = result.error
           
-            done()
+//            done()
           })
-        })
+//        })
         
         expect(error).toEventually(beNil())
       
