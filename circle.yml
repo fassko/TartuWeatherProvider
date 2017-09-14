@@ -6,6 +6,7 @@ deployment:
   staging:
     branches:
       only:
-        - /.*/
+        - master
+        - develop
     commands:
       - pod lib lint --verbose
