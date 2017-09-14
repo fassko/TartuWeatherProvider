@@ -4,9 +4,6 @@ machine:
     
 deployment:
   staging:
-    branches:
-      only:
-        - master
-        - develop
+    branch: [master, develop, /ISSUE_.*/]
     commands:
       - pod lib lint --verbose
