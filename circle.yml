@@ -3,12 +3,16 @@ machine:
     version: 9.0
 dependencies:
   pre:
-    - pod repo update --silent
-    - gem install cocoapods
-    - pod install --project-directory=Example
-    - instruments -s devices
-    - xcodebuild -showsdks
+    # - pod repo update --silent
+    # - gem install cocoapods
+    # - pod install --project-directory=Example
+    # - instruments -s devices
+    # - xcodebuild -showsdks
+    
 test:
   override:
     - set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone 8' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+    
+deployment:
+  staging:
     - pod lib lint --verbose
