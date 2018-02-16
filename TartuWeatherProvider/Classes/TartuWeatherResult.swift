@@ -7,8 +7,13 @@
 
 import Foundation
 
+/// Result type
 public enum TartuWeatherResult<Value> {
+
+  /// Success
   case success(Value)
+  
+  /// Failure
   case failure(Error)
 
   /// Returns `true` if the result is a success, `false` otherwise.

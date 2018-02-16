@@ -1,6 +1,7 @@
 # TartuWeatherProvider
 
 [![CircleCI](https://circleci.com/gh/fassko/TartuWeatherProvider/tree/master.svg?style=svg)](https://circleci.com/gh/fassko/TartuWeatherProvider/tree/master)
+[![Build Status](https://travis-ci.org/fassko/TartuWeatherProvider.svg?branch=master)](https://travis-ci.org/fassko/TartuWeatherProvider)
 [![Version](https://img.shields.io/cocoapods/v/TartuWeatherProvider.svg?style=flat)](http://cocoapods.org/pods/TartuWeatherProvider)
 [![License](https://img.shields.io/cocoapods/l/TartuWeatherProvider.svg?style=flat)](http://cocoapods.org/pods/TartuWeatherProvider)
 [![Platform](https://img.shields.io/cocoapods/p/TartuWeatherProvider.svg?style=flat)](http://cocoapods.org/pods/TartuWeatherProvider)

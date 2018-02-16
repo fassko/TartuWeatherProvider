@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (4.5.1)
   - Kingfisher (3.13.0)
   - Nimble (7.0.1)
   - Quick (1.1.0)
-  - TartuWeatherProvider (0.1.8):
-    - Alamofire (~> 4.5)
+  - SwiftSoup (1.6.1)
+  - TartuWeatherProvider (0.2.0):
+    - SwiftSoup (~> 1.6)
 
 DEPENDENCIES:
   - Kingfisher
@@ -14,15 +14,15 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   TartuWeatherProvider:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
   Nimble: 657d000e11df8aebe27cdaf9d244de7f30ed87f7
   Quick: dafc587e21eed9f4cab3249b9f9015b0b7a7f71d
-  TartuWeatherProvider: 0bc1416b68d79c2253fb4dd97f342f127974630e
+  SwiftSoup: 1eedf56f751b36035ae6c95562f86944c9cfafee
+  TartuWeatherProvider: 41d7d69294c6da0eb3336ccb897a90d9844c98b0
 
 PODFILE CHECKSUM: 59382d3b58433ee3dc42f139542a05f65d7c5a17
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1
