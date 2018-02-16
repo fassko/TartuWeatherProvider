@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  build-and-test:
+    macos:
+      xcode: "9.2.0"
+
+    steps:
+      - checkout
+
+      - run:
+          name: Test and build
+          command: set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+
+      - run:
+          name: Pod lib lint
+          command: pod lib lint --allow-warnings
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build-and-test
