@@ -9,7 +9,9 @@ jobs:
 
       - run:
           name: Update pods
-          command: pod install --project-directory=Example --repo-update
+          command: |
+            curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
+            pod install --project-directory=Example
 
       - run:
           name: Test and build
