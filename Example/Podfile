@@ -8,7 +8,5 @@ target 'TartuWeatherProvider_Example' do
   target 'TartuWeatherProvider_Tests' do
     inherit! :search_paths
 
-    pod 'Quick'
-    pod 'Nimble'
   end
 end

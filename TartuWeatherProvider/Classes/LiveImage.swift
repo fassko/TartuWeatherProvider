@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Live image
 public struct LiveImage {
 
   /// Small image URL
