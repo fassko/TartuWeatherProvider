@@ -10,7 +10,7 @@ import Foundation
 import SwiftSoup
 
 /// Tartu Weather Provider
-open class TartuWeatherProvider {
+public struct TartuWeatherProvider {
 
   /**
     Get weather data by parsing HTML
@@ -20,7 +20,7 @@ open class TartuWeatherProvider {
       - data: Weather data struct
    
   */
-  open class func getWeatherData(completion: @escaping (_ result: TartuWeatherResult<WeatherData>) -> Void) {
+  public static func getWeatherData(completion: @escaping (_ result: TartuWeatherResult<WeatherData>) -> Void) {
   
     let url = URL(string: "http://meteo.physic.ut.ee/en/frontmain.php?m=2")!
     URLSession.shared.dataTask(with: url) { data, response, error in
@@ -50,6 +50,77 @@ open class TartuWeatherProvider {
           } catch {
             completion(TartuWeatherResult.failure(error))
           }
+        }
+      }
+    }.resume()
+  }
+  
+  /**
+    Get historical data for last day
+   
+    - Parameters:
+      - completion: Callback block when data is retrieved from server
+      - data: Query data struct
+   
+  */
+  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData]>) -> Void) {
+    
+    var urlComponents = URLComponents(string: "http://meteo.physic.ut.ee/en/archive.php")
+    
+    var end: Date
+    var start: Date
+    let calendar = Calendar.current
+    
+    switch dataType {
+    case .today:
+      start = Date()
+      end = calendar.date(byAdding: .day, value: +1, to: start)!
+    case .yesterday:
+      end = Date()
+      start = calendar.date(byAdding: .day, value: -1, to: end)!
+    }
+    
+    urlComponents?.queryItems = [
+      URLQueryItem(name: "do", value: "data"),
+      URLQueryItem(name: "begin[year]", value: String( calendar.component(.year, from: start))),
+      URLQueryItem(name: "begin[mon]", value: String(calendar.component(.month, from: start))),
+      URLQueryItem(name: "begin[mday]", value: String(calendar.component(.day, from: start))),
+      URLQueryItem(name: "end[year]", value: String( calendar.component(.year, from: end))),
+      URLQueryItem(name: "end[mon]", value: String(calendar.component(.month, from: end))),
+      URLQueryItem(name: "end[mday]", value: String(calendar.component(.day, from: end))),
+      URLQueryItem(name: "ok", value: "+Query+"),
+      URLQueryItem(name: "9", value: "1"),
+      URLQueryItem(name: "10", value: "1"),
+      URLQueryItem(name: "11", value: "1"),
+      URLQueryItem(name: "12", value: "1"),
+      URLQueryItem(name: "13", value: "1"),
+      URLQueryItem(name: "14", value: "1"),
+      URLQueryItem(name: "15", value: "1"),
+      URLQueryItem(name: "16", value: "1"),
+      URLQueryItem(name: "17", value: "1"),
+    ]
+    
+    guard let url = urlComponents?.url else {
+      completion(TartuWeatherResult.failure(TartuWeatherError.queryData))
+      return
+    }
+    
+    URLSession.shared.dataTask(with: url) { data, response, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(TartuWeatherResult.failure(error))
+        } else if let data = data, let csvString = String(data: data, encoding: .utf8) {
+         
+          let lines = csvString.components(separatedBy: .newlines)
+          let rawData = Array(lines.map({
+            $0.components(separatedBy: ", ")
+          }).dropFirst().dropLast())
+          
+          let queryData = rawData.map({ dataItem -> QueryData in
+            QueryData(measuredTime: dataItem[0], temperature: dataItem[1], humidity: dataItem[2], airPressure: dataItem[3], wind: dataItem[4], windDirection: dataItem[5], precipitation: dataItem[6], uvIndex: dataItem[7], light: dataItem[8], irradiationFlux: dataItem[9], gammaRadiation: dataItem[10])
+          })
+          
+          completion(TartuWeatherResult.success(queryData))
         }
       }
     }.resume()

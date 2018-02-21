@@ -9,29 +9,16 @@
 import Foundation
 
 /// Weather data
-public struct WeatherData {
-  /// Temperature
+public struct WeatherData: WeatherDataProtocol, LiveImageProtocol {
   public var temperature: String
-  
-  /// Humidity
-  public var humidity:String
-  
-  /// Air pressure
-  public var airPressure:String
-  
-  /// Wind speed and direction
-  public var wind:String
-  
-  /// Precipitation
-  public var precipitation:String
-  
-  /// Irradiation flux
-  public var irradiationFlux:String
-  
-  /// Measured time
+  public var humidity: String
+  public var airPressure: String
+  public var wind: String
+  public var windDirection: String
+  public var precipitation: String
+  public var irradiationFlux: String
   public var measuredTime:String
   
-  /// Live image
   public var liveImage: LiveImage
   
   /**
@@ -50,7 +37,11 @@ public struct WeatherData {
     self.temperature = temperature
     self.humidity = humidity
     self.airPressure = airPressure
-    self.wind = wind
+    
+    let windParts = wind.components(separatedBy: " ")
+    self.wind = "\(windParts[1]) \(windParts[2])"
+    self.windDirection = windParts[0]
+    
     self.precipitation = precipitation
     self.irradiationFlux = irradiationFlux
     self.measuredTime = measuredTime

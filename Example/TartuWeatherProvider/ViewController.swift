@@ -9,7 +9,6 @@
 import UIKit
 
 import TartuWeatherProvider
-import Kingfisher
 
 class ViewController: UIViewController {
 
@@ -32,8 +31,7 @@ class ViewController: UIViewController {
   func getData() {
   
     // Get weather data
-    
-    TartuWeatherProvider.getWeatherData(completion: {result in
+    TartuWeatherProvider.getWeatherData { result in
       switch result {
         case .failure(let error):
           print("Can't get Weather Data \(error)")
@@ -41,12 +39,24 @@ class ViewController: UIViewController {
         case .success(let data):
         
           self.temperatureLabel.text = data.temperature
-          self.windLabel.text = data.wind
+          self.windLabel.text = "\(data.windDirection) \(data.wind)"
           self.lastMeasuredLabel.text = data.measuredTime
-        
-          self.currentImage.kf.setImage(with: URL(string: data.liveImage.large))
+          self.setImage(url: data.liveImage.large)
       }
-    })
+    }
+  }
+  
+  /**
+    Set live image
+  */
+  func setImage(url: String) {
+    URLSession.shared.dataTask(with: URL(string: url)!) { data, response, error in
+      guard let imgData = data else { return }
+      
+      DispatchQueue.main.async {
+        self.currentImage.image = UIImage(data: imgData)!
+      }
+    }.resume()
   }
   
   /**
@@ -58,6 +68,18 @@ class ViewController: UIViewController {
   */
   @IBAction func refresh(_ sender: Any) {
     getData()
+  }
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let vc = segue.destination as! HistoryTableViewController
+    
+    if segue.identifier == "yestreday" {
+      vc.queryType = .yesterday
+    } else if segue.identifier == "today" {
+      vc.queryType = .today
+    }
+    
+    (sender as! UIBarButtonItem).style = .done
   }
 }
 

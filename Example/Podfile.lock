@@ -1,11 +1,9 @@
 PODS:
-  - Kingfisher (3.13.0)
   - SwiftSoup (1.6.1)
-  - TartuWeatherProvider (0.2.0):
+  - TartuWeatherProvider (0.2.1):
     - SwiftSoup (~> 1.6)
 
 DEPENDENCIES:
-  - Kingfisher
   - TartuWeatherProvider (from `../`)
 
 EXTERNAL SOURCES:
@@ -13,10 +11,9 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  Kingfisher: 7eebf6000ac64401839f10da37f21eefa7d88970
   SwiftSoup: 1eedf56f751b36035ae6c95562f86944c9cfafee
-  TartuWeatherProvider: 227146b82467e910be408c2e23bc564924771918
+  TartuWeatherProvider: 9e7aec0eaf029c38f8fd90cfff25e1f0de0acc26
 
-PODFILE CHECKSUM: 0d9e2c4825942a3e239dba11a6f6c7cecee937a3
+PODFILE CHECKSUM: 43c1ba26e08d274980eb8bb3d4448ce8abcc3a05
 
 COCOAPODS: 1.4.0
