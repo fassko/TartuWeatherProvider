@@ -17,7 +17,7 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
   s.osx.deployment_target = '10.12'
   s.watchos.deployment_target = "3.0"
 
-  s.source_files = 'Sources/**/*'
+  s.source_files = 'Sources/*.swift'
   
   s.framework = 'Foundation'
   
