@@ -19,3 +19,14 @@ public protocol QueryDataProtocol: WeatherDataProtocol {
   /// Gamma radiation
   var gammaRadiation: String { get }
 }
+
+public extension QueryDataProtocol {
+
+  /// Measured date
+  public var measuredDate: Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
+    
+    return dateFormatter.date(from: measuredTime)
+  }
+}

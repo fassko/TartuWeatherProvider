@@ -34,6 +34,7 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(data?.measuredTime)
     XCTAssertNotNil(data?.liveImage.small)
     XCTAssertNotNil(data?.liveImage.large)
+    XCTAssertNotNil(data?.measuredDate)
   }
   
   func testQueryDataToday() {
@@ -80,5 +81,6 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(firstItem.light)
     XCTAssertNotNil(firstItem.irradiationFlux)
     XCTAssertNotNil(firstItem.gammaRadiation)
+    XCTAssertNotNil(firstItem.measuredDate)
   }
 }
