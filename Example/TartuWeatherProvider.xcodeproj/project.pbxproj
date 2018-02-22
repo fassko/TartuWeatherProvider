@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		6303A3921DF227A9005257C6 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6303A3911DF227A9005257C6 /* Tests.swift */; };
+		63E09927203E0B4400959498 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E09926203E0B4400959498 /* HistoryTableViewController.swift */; };
 		E888F9F7C0558D2D4BCC9723 /* Pods_TartuWeatherProvider_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88837554EB09221904138790 /* Pods_TartuWeatherProvider_Tests.framework */; };
 		F2D916BA502350EE9F64B489 /* Pods_TartuWeatherProvider_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39BC319E9835FBC03439730E /* Pods_TartuWeatherProvider_Example.framework */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		6303A3871DF22732005257C6 /* TartuWeatherProvider_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TartuWeatherProvider_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6303A38B1DF22732005257C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6303A3911DF227A9005257C6 /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
+		63E09926203E0B4400959498 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		69C824690648E3B1A4D2C13C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6D341FD56B6D83F7895C04A8 /* Pods-TartuWeatherProvider_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TartuWeatherProvider_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TartuWeatherProvider_Tests/Pods-TartuWeatherProvider_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		88837554EB09221904138790 /* Pods_TartuWeatherProvider_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TartuWeatherProvider_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,6 +98,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				63E09926203E0B4400959498 /* HistoryTableViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -267,13 +270,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TartuWeatherProvider_Example/Pods-TartuWeatherProvider_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/TartuWeatherProvider/TartuWeatherProvider.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TartuWeatherProvider.framework",
 			);
@@ -377,6 +378,7 @@
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
+				63E09927203E0B4400959498 /* HistoryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

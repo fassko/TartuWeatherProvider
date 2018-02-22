@@ -4,12 +4,13 @@ import XCTest
 import TartuWeatherProvider
 
 class TartuWeatherProviderTests: XCTestCase {
-  func testExample() {
+
+  func testWeatherData() {
     let expectation = self.expectation(description: "weatherData")
     
     var data: WeatherData?
     
-    TartuWeatherProvider.getWeatherData {result in
+    TartuWeatherProvider.getWeatherData { result in
       switch result {
       case let .success(value):
         data = value
@@ -27,20 +28,57 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(data?.humidity)
     XCTAssertNotNil(data?.airPressure)
     XCTAssertNotNil(data?.wind)
+    XCTAssertNotNil(data?.windDirection)
     XCTAssertNotNil(data?.precipitation)
     XCTAssertNotNil(data?.irradiationFlux)
     XCTAssertNotNil(data?.measuredTime)
     XCTAssertNotNil(data?.liveImage.small)
     XCTAssertNotNil(data?.liveImage.large)
+  }
+  
+  func testQueryDataToday() {
+    getQueryData(.today)
+  }
+  
+  func testQueryDataYesterday() {
+    getQueryData(.yesterday)
+  }
+  
+  func getQueryData(_ type: QueryDataType) {
+    let expectation = self.expectation(description: "queryData\(type.description)")
     
-//    expect(data?.temperature).toEventuallyNot(beNil())
-//    expect(data?.humidity).toEventuallyNot(beNil())
-//    expect(data?.airPressure).toEventuallyNot(beNil())
-//    expect(data?.wind).toEventuallyNot(beNil())
-//    expect(data?.precipitation).toEventuallyNot(beNil())
-//    expect(data?.irradiationFlux).toEventuallyNot(beNil())
-//    expect(data?.measuredTime).toEventuallyNot(beNil())
-//    expect(data?.liveImage.small).toEventuallyNot(beNil())
-//    expect(data?.liveImage.large).toEventuallyNot(beNil())
+    var queryData: [QueryData]?
+    
+    TartuWeatherProvider.getArchiveData(type) { result in
+      switch result {
+      case let .success(value):
+        queryData = value
+        expectation.fulfill()
+      case let .failure(error):
+        print(error)
+        XCTFail("Failed to get observations")
+      }
+    }
+    
+    waitForExpectations(timeout: 5, handler: nil)
+    
+    XCTAssertNotNil(queryData)
+    
+    guard let firstItem = queryData?[0] else {
+      XCTFail()
+      return
+    }
+
+    XCTAssertNotNil(firstItem.measuredTime)
+    XCTAssertNotNil(firstItem.temperature)
+    XCTAssertNotNil(firstItem.humidity)
+    XCTAssertNotNil(firstItem.airPressure)
+    XCTAssertNotNil(firstItem.wind)
+    XCTAssertNotNil(firstItem.windDirection)
+    XCTAssertNotNil(firstItem.precipitation)
+    XCTAssertNotNil(firstItem.uvIndex)
+    XCTAssertNotNil(firstItem.light)
+    XCTAssertNotNil(firstItem.irradiationFlux)
+    XCTAssertNotNil(firstItem.gammaRadiation)
   }
 }

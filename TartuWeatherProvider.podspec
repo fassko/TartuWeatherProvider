@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TartuWeatherProvider'
-  s.version          = '0.2.0'
+  s.version          = '0.3.0'
   s.summary          = 'Tartu weather provider from Tartu Physics faculty'
 
   s.description      = <<-DESC
@@ -17,7 +17,7 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
   s.osx.deployment_target = '10.12'
   s.watchos.deployment_target = "3.0"
 
-  s.source_files = 'TartuWeatherProvider/Classes/**/*'
+  s.source_files = 'Sources/*.swift'
   
   s.framework = 'Foundation'
   

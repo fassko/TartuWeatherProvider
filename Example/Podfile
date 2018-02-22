@@ -2,8 +2,6 @@ use_frameworks!
 
 target 'TartuWeatherProvider_Example' do
   pod 'TartuWeatherProvider', :path => '../'
-  
-  pod 'Kingfisher'
 
   target 'TartuWeatherProvider_Tests' do
     inherit! :search_paths
