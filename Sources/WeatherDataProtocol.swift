@@ -34,3 +34,14 @@ public protocol WeatherDataProtocol {
   /// Measured time
   var measuredTime: String  { get }
 }
+
+public extension WeatherDataProtocol {
+
+  /// Measured date
+  public var measuredDate: Date? {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "dd MMM yy HH:mm:ss"
+    
+    return dateFormatter.date(from: measuredTime)
+  }
+}
