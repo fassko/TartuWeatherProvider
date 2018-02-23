@@ -9,7 +9,7 @@
 import Foundation
 
 /// Weather data
-public struct WeatherData: WeatherDataProtocol, LiveImageProtocol {
+public struct WeatherData: WeatherDataProtocol, MeasureDateable, LiveImageProtocol {
   public var temperature: String
   public var humidity: String
   public var airPressure: String
