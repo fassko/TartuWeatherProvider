@@ -82,5 +82,22 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(firstItem.irradiationFlux)
     XCTAssertNotNil(firstItem.gammaRadiation)
     XCTAssertNotNil(firstItem.measuredDate)
+    
+    guard let measuredDate = firstItem.measuredDate else {
+      XCTFail()
+      return
+    }
+    
+    let calendar = Calendar.current
+    XCTAssertEqual(calendar.component(.hour, from: measuredDate), 00)
+    XCTAssertEqual(calendar.component(.minute, from: measuredDate), 00)
+    
+    guard let secondItemDate = queryData?[1].measuredDate else {
+      XCTFail()
+      return
+    }
+    
+    XCTAssertEqual(calendar.component(.hour, from: secondItemDate), 00)
+    XCTAssertEqual(calendar.component(.minute, from: secondItemDate), 05)
   }
 }
