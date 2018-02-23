@@ -8,7 +8,7 @@
 import Foundation
 
 /// Query data
-public struct QueryData: QueryDataProtocol {
+public struct QueryData: QueryDataProtocol, MeasureDateable {
   public var measuredTime: String
   public var temperature: String
   public var humidity: String

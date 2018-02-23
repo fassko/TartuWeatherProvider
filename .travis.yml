@@ -1,6 +1,7 @@
 osx_image: xcode9
 language: objective-c
 before_install:
+  - sudo systemsetup -settimezone Europe/Tallinn
   - gem install cocoapods
   - pod install --project-directory=Example --repo-update
 script:

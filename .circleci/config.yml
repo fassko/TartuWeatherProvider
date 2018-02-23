@@ -6,6 +6,10 @@ jobs:
 
     steps:
       - checkout
+      
+      - run:
+          name: Set timezone
+          command: sudo systemsetup -settimezone Europe/Tallinn
 
       - run:
           name: Update pods
