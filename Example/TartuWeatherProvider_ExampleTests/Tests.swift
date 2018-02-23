@@ -88,7 +88,8 @@ class TartuWeatherProviderTests: XCTestCase {
       return
     }
     
-    let calendar = Calendar.current
+    var calendar = Calendar.current
+    calendar.timeZone = TimeZone(abbreviation: "EET")!
     XCTAssertEqual(calendar.component(.hour, from: measuredDate), 00)
     XCTAssertEqual(calendar.component(.minute, from: measuredDate), 00)
     
