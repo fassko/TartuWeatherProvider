@@ -15,6 +15,7 @@ public extension MeasureDateable where Self == WeatherData {
   /// Measured date
   public var measuredDate: Date? {
     let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
     dateFormatter.dateFormat = "dd MMM yy HH:mm:ss"
     
     return dateFormatter.date(from: measuredTime)
@@ -26,6 +27,7 @@ public extension MeasureDateable where Self == QueryData {
   /// Measured date
   public var measuredDate: Date? {
     let dateFormatter = DateFormatter()
+    dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
     dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
     
     return dateFormatter.date(from: measuredTime)
