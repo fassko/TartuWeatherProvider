@@ -20,7 +20,6 @@
 		6341DBFD2053E4F600D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
 		6341DC032053E74D00D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC022053E74D00D36D2C /* SwiftSoup.framework */; };
 		6341DC0D2053E79300D36D2C /* TartuWeatherProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DBC32053E49A00D36D2C /* TartuWeatherProvider.framework */; };
-		6341DC142053E7C000D36D2C /* TartuWeatherProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC132053E7C000D36D2C /* TartuWeatherProviderTests.swift */; };
 		6341DC3E2053EF5A00D36D2C /* MeasureDateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE62053E4F600D36D2C /* MeasureDateable.swift */; };
 		6341DC3F2053EF5A00D36D2C /* WeatherDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */; };
 		6341DC402053EF5A00D36D2C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE82053E4F600D36D2C /* WeatherData.swift */; };
@@ -45,6 +44,7 @@
 		6341DC652053F07F00D36D2C /* TartuWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */; };
 		6341DC662053F07F00D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
 		6341DC682053F0BF00D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC672053F0BF00D36D2C /* SwiftSoup.framework */; };
+		6341DC792053F6ED00D36D2C /* TartuWeatherProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,6 @@
 		6341DC022053E74D00D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
 		6341DC082053E79300D36D2C /* TartuWeatherProvider-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TartuWeatherProvider-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6341DC0C2053E79300D36D2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6341DC132053E7C000D36D2C /* TartuWeatherProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TartuWeatherProviderTests.swift; path = Example/TartuWeatherProvider_ExampleTests/TartuWeatherProviderTests.swift; sourceTree = SOURCE_ROOT; };
 		6341DC2B2053ED2700D36D2C /* TartuWeatherProvider-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "TartuWeatherProvider-iOS copy-Info.plist"; path = "/Users/kristaps/Documents/ios/TartuWeatherProvider/TartuWeatherProvider-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		6341DC2C2053EDB500D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/tvOS/SwiftSoup.framework; sourceTree = "<group>"; };
 		6341DC362053EF5100D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +83,7 @@
 		6341DC532053F01A00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6341DC672053F0BF00D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/Mac/SwiftSoup.framework; sourceTree = "<group>"; };
 		6341DC6E2053F0DC00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherProviderTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,7 +187,7 @@
 		6341DC092053E79300D36D2C /* TartuWeatherProvider-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				6341DC132053E7C000D36D2C /* TartuWeatherProviderTests.swift */,
+				6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */,
 				6341DC0C2053E79300D36D2C /* Info.plist */,
 			);
 			path = "TartuWeatherProvider-iOSTests";
@@ -513,7 +513,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6341DC142053E7C000D36D2C /* TartuWeatherProviderTests.swift in Sources */,
+				6341DC792053F6ED00D36D2C /* TartuWeatherProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
