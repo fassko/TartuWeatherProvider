@@ -1,12 +1,11 @@
 osx_image: xcode9.2
 language: objective-c
 before_install:
-  - brew install carthage
+  - brew update
   - brew outdated carthage || brew upgrade carthage
   - carthage update --platform iOS
   - brew install swiftlint
   - gem install cocoapods
-  - pod install --project-directory=Example --repo-update
 script:
 - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-iOS -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
 - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-tvOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
