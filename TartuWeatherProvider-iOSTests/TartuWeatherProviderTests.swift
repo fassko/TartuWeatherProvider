@@ -65,7 +65,7 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(queryData)
     
     guard let firstItem = queryData?[0] else {
-      XCTFail()
+      XCTFail("Can't get first item")
       return
     }
 
@@ -83,7 +83,7 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertNotNil(firstItem.measuredDate)
     
     guard let measuredDate = firstItem.measuredDate else {
-      XCTFail()
+      XCTFail("Can't get measure date")
       return
     }
     
@@ -93,7 +93,7 @@ class TartuWeatherProviderTests: XCTestCase {
     XCTAssertEqual(calendar.component(.minute, from: measuredDate), 00)
     
     guard let secondItemDate = queryData?[1].measuredDate else {
-      XCTFail()
+      XCTFail("Can't get second item date")
       return
     }
     

@@ -45,6 +45,7 @@
 		6341DC662053F07F00D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
 		6341DC682053F0BF00D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC672053F0BF00D36D2C /* SwiftSoup.framework */; };
 		6341DC792053F6ED00D36D2C /* TartuWeatherProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */; };
+		6341DC7B20545ED600D36D2C /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC7A20545ED600D36D2C /* ResultTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		6341DC672053F0BF00D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/Mac/SwiftSoup.framework; sourceTree = "<group>"; };
 		6341DC6E2053F0DC00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherProviderTests.swift; sourceTree = "<group>"; };
+		6341DC7A20545ED600D36D2C /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				6341DC782053F6ED00D36D2C /* TartuWeatherProviderTests.swift */,
+				6341DC7A20545ED600D36D2C /* ResultTests.swift */,
 				6341DC0C2053E79300D36D2C /* Info.plist */,
 			);
 			path = "TartuWeatherProvider-iOSTests";
@@ -513,6 +516,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6341DC7B20545ED600D36D2C /* ResultTests.swift in Sources */,
 				6341DC792053F6ED00D36D2C /* TartuWeatherProviderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

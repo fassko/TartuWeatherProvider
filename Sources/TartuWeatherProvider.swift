@@ -20,13 +20,14 @@ public struct TartuWeatherProvider {
       - data: Weather data struct
    
   */
-  public static func getWeatherData(completion: @escaping (_ result: TartuWeatherResult<WeatherData>) -> Void) {
+  public static func getWeatherData(
+    completion: @escaping (_ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void) {
   
     let url = URL(string: "http://meteo.physic.ut.ee/en/frontmain.php?m=2")!
     URLSession.shared.dataTask(with: url) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
-          completion(TartuWeatherResult.failure(error))
+          completion(TartuWeatherResult.failure(.error(error)))
         } else if let data = data {
           do {
             let htmlString = String(data: data, encoding: .utf8)
@@ -49,7 +50,7 @@ public struct TartuWeatherProvider {
             completion(TartuWeatherResult.success(weatherData))
             
           } catch {
-            completion(TartuWeatherResult.failure(error))
+            completion(TartuWeatherResult.failure(.error(error)))
           }
         }
       }
@@ -64,19 +65,14 @@ public struct TartuWeatherProvider {
       - data: Query data struct
    
   */
-  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData]>) -> Void) {
+  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void) {
     
     let urlComponents = generateURLComponents(dataType: dataType)
     
-    guard let url = urlComponents?.url else {
-      completion(TartuWeatherResult.failure(TartuWeatherError.queryData))
-      return
-    }
-    
-    URLSession.shared.dataTask(with: url) { data, _, error in
+    URLSession.shared.dataTask(with: urlComponents.url!) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
-          completion(TartuWeatherResult.failure(error))
+          completion(TartuWeatherResult.failure(.error(error)))
         } else if let data = data, let csvString = String(data: data, encoding: .utf8) {
          
           let lines = csvString.components(separatedBy: .newlines)
@@ -102,7 +98,7 @@ public struct TartuWeatherProvider {
    
    - Returns: Generated URL components
   */
-  private static func generateURLComponents(dataType: QueryDataType) -> URLComponents? {
+  private static func generateURLComponents(dataType: QueryDataType) -> URLComponents {
     var urlComponents = URLComponents(string: "http://meteo.physic.ut.ee/en/archive.php")
     
     var end: Date
@@ -138,6 +134,6 @@ public struct TartuWeatherProvider {
       URLQueryItem(name: "17", value: "1")
     ]
     
-    return urlComponents
+    return urlComponents!
   }
 }

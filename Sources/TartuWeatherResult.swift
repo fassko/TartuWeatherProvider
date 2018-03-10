@@ -8,13 +8,13 @@
 import Foundation
 
 /// Result type
-public enum TartuWeatherResult<Value> {
+public enum TartuWeatherResult<Value, E: Swift.Error> {
 
   /// Success
   case success(Value)
   
   /// Failure
-  case failure(Error)
+  case failure(E)
 
   /// Returns `true` if the result is a success, `false` otherwise.
   public var isSuccess: Bool {
