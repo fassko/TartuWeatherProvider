@@ -5,6 +5,7 @@ before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
   - carthage update
+  - carthage update --platform iOS
   - brew install swiftlint
   - gem install cocoapods
   - pod install --project-directory=Example --repo-update
@@ -14,3 +15,5 @@ script:
 - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-watchOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
 - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-macOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
 - pod lib lint --verbose
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

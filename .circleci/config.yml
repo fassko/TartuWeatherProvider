@@ -16,7 +16,7 @@ jobs:
           command: |
             brew update
             brew outdated carthage || brew upgrade carthage
-            carthage update
+            carthage update --platform iOS
 
       - run:
           name: Install Swiftlint
@@ -42,6 +42,11 @@ jobs:
       - run:
           name: Pod lib lint
           command: pod lib lint --allow-warnings
+
+      - run:
+          name: Codeconv
+          command: |
+            bash <(curl -s https://codecov.io/bash))
 
 workflows:
   version: 2
