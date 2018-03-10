@@ -8,13 +8,8 @@ jobs:
       - checkout
 
       - run:
-          name: Set timezone
-          command: sudo systemsetup -settimezone Europe/Tallinn
-
-      - run:
           name: Carthage
           command: |
-            brew install carthage
             brew outdated carthage || brew upgrade carthage
             carthage update --platform iOS
 

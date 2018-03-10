@@ -1,7 +1,6 @@
 osx_image: xcode9.2
 language: objective-c
 before_install:
-  - sudo systemsetup -settimezone Europe/Tallinn
   - brew install carthage
   - brew outdated carthage || brew upgrade carthage
   - carthage update --platform iOS
