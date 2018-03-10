@@ -22,6 +22,10 @@ jobs:
           name: Test and build iOS
           command: set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-iOS -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
 
+      - run:
+          name: SwiftPM Build
+          command: swift build
+
       # - run:
       #     name: Build other platforms
       #     command: |
