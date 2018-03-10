@@ -17,7 +17,7 @@ public struct WeatherData: WeatherDataProtocol, MeasureDateable, LiveImageProtoc
   public var windDirection: String
   public var precipitation: String
   public var irradiationFlux: String
-  public var measuredTime:String
+  public var measuredTime: String
   
   public var liveImage: LiveImage
   
@@ -33,7 +33,10 @@ public struct WeatherData: WeatherDataProtocol, MeasureDateable, LiveImageProtoc
       - irradiationFlux: Irradiation flux
       - measuredTime: Measured time
   */
-  init(temperature:String, humidity:String, airPressure:String, wind:String, precipitation:String, irradiationFlux:String, measuredTime:String, smallImageURL: String, largeImageURL: String) {
+  init(temperature: String, humidity: String, airPressure: String, wind: String,
+       precipitation: String, irradiationFlux: String, measuredTime: String,
+       smallImageURL: String, largeImageURL: String) {
+    
     self.temperature = temperature
     self.humidity = humidity
     self.airPressure = airPressure

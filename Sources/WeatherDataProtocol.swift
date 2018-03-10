@@ -14,23 +14,23 @@ public protocol WeatherDataProtocol {
   var temperature: String { get }
   
   /// Humidity
-  var humidity: String  { get }
+  var humidity: String { get }
   
   /// Air pressure
-  var airPressure: String  { get }
+  var airPressure: String { get }
   
   /// Wind speed and direction
-  var wind: String  { get }
+  var wind: String { get }
   
   /// Wind direction
   var windDirection: String { get }
   
   /// Precipitation
-  var precipitation: String  { get }
+  var precipitation: String { get }
   
   /// Irradiation flux
-  var irradiationFlux: String  { get }
+  var irradiationFlux: String { get }
   
   /// Measured time
-  var measuredTime: String  { get }
+  var measuredTime: String { get }
 }
