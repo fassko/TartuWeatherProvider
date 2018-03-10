@@ -23,7 +23,7 @@ public struct LiveImage {
       - small: Small image URL
       - large: Large image URL
   */
-  init(small:String, large:String) {
+  init(small: String, large: String) {
     self.small = small
     self.large = large
   }

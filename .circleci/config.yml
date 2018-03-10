@@ -6,24 +6,46 @@ jobs:
 
     steps:
       - checkout
-      
+
       - run:
-          name: Set timezone
-          command: sudo systemsetup -settimezone Europe/Tallinn
+          name: Carthage
+          command: |
+            brew update
+            brew outdated carthage || brew upgrade carthage
+            carthage update --platform iOS
+
+      - run:
+          name: Install Swiftlint
+          command: brew install swiftlint
+
+      - run:
+          name: Test and build iOS
+          command: set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-iOS -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+
+      - run:
+          name: SwiftPM Build
+          command: swift build
+
+      # - run:
+      #     name: Build other platforms
+      #     command: |
+      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-tvOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-watchOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-macOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
 
       - run:
           name: Update pods
           command: |
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-            pod install --project-directory=Example
-
-      - run:
-          name: Test and build
-          command: set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
 
       - run:
           name: Pod lib lint
           command: pod lib lint --allow-warnings
+
+      - run:
+          name: Codeconv
+          command: |
+            bash <(curl -s https://codecov.io/bash)
 
 workflows:
   version: 2

@@ -1,0 +1,992 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6341DBF22053E4F600D36D2C /* MeasureDateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE62053E4F600D36D2C /* MeasureDateable.swift */; };
+		6341DBF32053E4F600D36D2C /* WeatherDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */; };
+		6341DBF42053E4F600D36D2C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE82053E4F600D36D2C /* WeatherData.swift */; };
+		6341DBF52053E4F600D36D2C /* LiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE92053E4F600D36D2C /* LiveImage.swift */; };
+		6341DBF62053E4F600D36D2C /* QueryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEA2053E4F600D36D2C /* QueryData.swift */; };
+		6341DBF72053E4F600D36D2C /* QueryDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEB2053E4F600D36D2C /* QueryDataType.swift */; };
+		6341DBF82053E4F600D36D2C /* LiveImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEC2053E4F600D36D2C /* LiveImageProtocol.swift */; };
+		6341DBF92053E4F600D36D2C /* QueryDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBED2053E4F600D36D2C /* QueryDataProtocol.swift */; };
+		6341DBFB2053E4F600D36D2C /* TartuWeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEF2053E4F600D36D2C /* TartuWeatherProvider.swift */; };
+		6341DBFC2053E4F600D36D2C /* TartuWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */; };
+		6341DBFD2053E4F600D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
+		6341DC032053E74D00D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC022053E74D00D36D2C /* SwiftSoup.framework */; };
+		6341DC0D2053E79300D36D2C /* TartuWeatherProvider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DBC32053E49A00D36D2C /* TartuWeatherProvider.framework */; };
+		6341DC3E2053EF5A00D36D2C /* MeasureDateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE62053E4F600D36D2C /* MeasureDateable.swift */; };
+		6341DC3F2053EF5A00D36D2C /* WeatherDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */; };
+		6341DC402053EF5A00D36D2C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE82053E4F600D36D2C /* WeatherData.swift */; };
+		6341DC412053EF5A00D36D2C /* LiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE92053E4F600D36D2C /* LiveImage.swift */; };
+		6341DC422053EF5A00D36D2C /* QueryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEA2053E4F600D36D2C /* QueryData.swift */; };
+		6341DC432053EF5A00D36D2C /* QueryDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEB2053E4F600D36D2C /* QueryDataType.swift */; };
+		6341DC442053EF5A00D36D2C /* LiveImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEC2053E4F600D36D2C /* LiveImageProtocol.swift */; };
+		6341DC452053EF5A00D36D2C /* QueryDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBED2053E4F600D36D2C /* QueryDataProtocol.swift */; };
+		6341DC462053EF5A00D36D2C /* TartuWeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEF2053E4F600D36D2C /* TartuWeatherProvider.swift */; };
+		6341DC472053EF5A00D36D2C /* TartuWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */; };
+		6341DC482053EF5A00D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
+		6341DC4D2053EFB300D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC2C2053EDB500D36D2C /* SwiftSoup.framework */; };
+		6341DC5C2053F07F00D36D2C /* MeasureDateable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE62053E4F600D36D2C /* MeasureDateable.swift */; };
+		6341DC5D2053F07F00D36D2C /* WeatherDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */; };
+		6341DC5E2053F07F00D36D2C /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE82053E4F600D36D2C /* WeatherData.swift */; };
+		6341DC5F2053F07F00D36D2C /* LiveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBE92053E4F600D36D2C /* LiveImage.swift */; };
+		6341DC602053F07F00D36D2C /* QueryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEA2053E4F600D36D2C /* QueryData.swift */; };
+		6341DC612053F07F00D36D2C /* QueryDataType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEB2053E4F600D36D2C /* QueryDataType.swift */; };
+		6341DC622053F07F00D36D2C /* LiveImageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEC2053E4F600D36D2C /* LiveImageProtocol.swift */; };
+		6341DC632053F07F00D36D2C /* QueryDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBED2053E4F600D36D2C /* QueryDataProtocol.swift */; };
+		6341DC642053F07F00D36D2C /* TartuWeatherProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBEF2053E4F600D36D2C /* TartuWeatherProvider.swift */; };
+		6341DC652053F07F00D36D2C /* TartuWeatherResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */; };
+		6341DC662053F07F00D36D2C /* TartuWeatherError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */; };
+		6341DC682053F0BF00D36D2C /* SwiftSoup.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6341DC672053F0BF00D36D2C /* SwiftSoup.framework */; };
+		6341DC802054644600D36D2C /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC7D2054644600D36D2C /* ResultTests.swift */; };
+		6341DC812054644600D36D2C /* TartuWeatherProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6341DC7E2054644600D36D2C /* TartuWeatherProviderTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6341DC0E2053E79300D36D2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6341DBBA2053E49A00D36D2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6341DBC22053E49A00D36D2C;
+			remoteInfo = "TartuWeatherProvider-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6341DBC32053E49A00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DBE62053E4F600D36D2C /* MeasureDateable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasureDateable.swift; sourceTree = "<group>"; };
+		6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherDataProtocol.swift; sourceTree = "<group>"; };
+		6341DBE82053E4F600D36D2C /* WeatherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		6341DBE92053E4F600D36D2C /* LiveImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveImage.swift; sourceTree = "<group>"; };
+		6341DBEA2053E4F600D36D2C /* QueryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryData.swift; sourceTree = "<group>"; };
+		6341DBEB2053E4F600D36D2C /* QueryDataType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryDataType.swift; sourceTree = "<group>"; };
+		6341DBEC2053E4F600D36D2C /* LiveImageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveImageProtocol.swift; sourceTree = "<group>"; };
+		6341DBED2053E4F600D36D2C /* QueryDataProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryDataProtocol.swift; sourceTree = "<group>"; };
+		6341DBEF2053E4F600D36D2C /* TartuWeatherProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherProvider.swift; sourceTree = "<group>"; };
+		6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherResult.swift; sourceTree = "<group>"; };
+		6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherError.swift; sourceTree = "<group>"; };
+		6341DBFE2053E59500D36D2C /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Info-iOS.plist"; path = "Sources/Info-iOS.plist"; sourceTree = "<group>"; };
+		6341DC022053E74D00D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/iOS/SwiftSoup.framework; sourceTree = "<group>"; };
+		6341DC082053E79300D36D2C /* TartuWeatherProviderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TartuWeatherProviderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DC2C2053EDB500D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/tvOS/SwiftSoup.framework; sourceTree = "<group>"; };
+		6341DC362053EF5100D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DC492053EF6F00D36D2C /* Info-tvOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-tvOS.plist"; path = "Sources/Info-tvOS.plist"; sourceTree = "<group>"; };
+		6341DC4A2053EF6F00D36D2C /* Info-macOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-macOS.plist"; path = "Sources/Info-macOS.plist"; sourceTree = "<group>"; };
+		6341DC4B2053EF6F00D36D2C /* Info-watchOS.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-watchOS.plist"; path = "Sources/Info-watchOS.plist"; sourceTree = "<group>"; };
+		6341DC532053F01A00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DC672053F0BF00D36D2C /* SwiftSoup.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftSoup.framework; path = Carthage/Build/Mac/SwiftSoup.framework; sourceTree = "<group>"; };
+		6341DC6E2053F0DC00D36D2C /* TartuWeatherProvider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TartuWeatherProvider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6341DC7D2054644600D36D2C /* ResultTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		6341DC7E2054644600D36D2C /* TartuWeatherProviderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TartuWeatherProviderTests.swift; sourceTree = "<group>"; };
+		6341DC7F2054644600D36D2C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6341DBBF2053E49A00D36D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC032053E74D00D36D2C /* SwiftSoup.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC052053E79300D36D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC0D2053E79300D36D2C /* TartuWeatherProvider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC322053EF5100D36D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC4D2053EFB300D36D2C /* SwiftSoup.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC4F2053F01A00D36D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC682053F0BF00D36D2C /* SwiftSoup.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC6A2053F0DC00D36D2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6341DBB92053E49A00D36D2C = {
+			isa = PBXGroup;
+			children = (
+				6341DBFE2053E59500D36D2C /* Info-iOS.plist */,
+				6341DC4A2053EF6F00D36D2C /* Info-macOS.plist */,
+				6341DC492053EF6F00D36D2C /* Info-tvOS.plist */,
+				6341DC4B2053EF6F00D36D2C /* Info-watchOS.plist */,
+				6341DBE52053E4F600D36D2C /* Sources */,
+				6341DC7C2054644600D36D2C /* TartuWeatherProviderTests */,
+				6341DBC42053E49A00D36D2C /* Products */,
+				6341DC012053E74C00D36D2C /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		6341DBC42053E49A00D36D2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6341DBC32053E49A00D36D2C /* TartuWeatherProvider.framework */,
+				6341DC082053E79300D36D2C /* TartuWeatherProviderTests.xctest */,
+				6341DC362053EF5100D36D2C /* TartuWeatherProvider.framework */,
+				6341DC532053F01A00D36D2C /* TartuWeatherProvider.framework */,
+				6341DC6E2053F0DC00D36D2C /* TartuWeatherProvider.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6341DBE52053E4F600D36D2C /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6341DBE62053E4F600D36D2C /* MeasureDateable.swift */,
+				6341DBE72053E4F600D36D2C /* WeatherDataProtocol.swift */,
+				6341DBE82053E4F600D36D2C /* WeatherData.swift */,
+				6341DBE92053E4F600D36D2C /* LiveImage.swift */,
+				6341DBEA2053E4F600D36D2C /* QueryData.swift */,
+				6341DBEB2053E4F600D36D2C /* QueryDataType.swift */,
+				6341DBEC2053E4F600D36D2C /* LiveImageProtocol.swift */,
+				6341DBED2053E4F600D36D2C /* QueryDataProtocol.swift */,
+				6341DBEF2053E4F600D36D2C /* TartuWeatherProvider.swift */,
+				6341DBF02053E4F600D36D2C /* TartuWeatherResult.swift */,
+				6341DBF12053E4F600D36D2C /* TartuWeatherError.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		6341DC012053E74C00D36D2C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6341DC672053F0BF00D36D2C /* SwiftSoup.framework */,
+				6341DC2C2053EDB500D36D2C /* SwiftSoup.framework */,
+				6341DC022053E74D00D36D2C /* SwiftSoup.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6341DC7C2054644600D36D2C /* TartuWeatherProviderTests */ = {
+			isa = PBXGroup;
+			children = (
+				6341DC7D2054644600D36D2C /* ResultTests.swift */,
+				6341DC7E2054644600D36D2C /* TartuWeatherProviderTests.swift */,
+				6341DC7F2054644600D36D2C /* Info.plist */,
+			);
+			path = TartuWeatherProviderTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		6341DBC02053E49A00D36D2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC332053EF5100D36D2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC502053F01A00D36D2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC6B2053F0DC00D36D2C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		6341DBC22053E49A00D36D2C /* TartuWeatherProvider-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6341DBCB2053E49A00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-iOS" */;
+			buildPhases = (
+				6341DBBE2053E49A00D36D2C /* Sources */,
+				6341DBBF2053E49A00D36D2C /* Frameworks */,
+				6341DBC02053E49A00D36D2C /* Headers */,
+				6341DBC12053E49A00D36D2C /* Resources */,
+				6341DC002053E6E400D36D2C /* Carthage */,
+				6341DC772053F1C500D36D2C /* Swiftlint */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TartuWeatherProvider-iOS";
+			productName = TartuWeatherProvider;
+			productReference = 6341DBC32053E49A00D36D2C /* TartuWeatherProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6341DC072053E79300D36D2C /* TartuWeatherProviderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6341DC102053E79300D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProviderTests" */;
+			buildPhases = (
+				6341DC042053E79300D36D2C /* Sources */,
+				6341DC052053E79300D36D2C /* Frameworks */,
+				6341DC062053E79300D36D2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6341DC0F2053E79300D36D2C /* PBXTargetDependency */,
+			);
+			name = TartuWeatherProviderTests;
+			productName = "TartuWeatherProvider-iOSTests";
+			productReference = 6341DC082053E79300D36D2C /* TartuWeatherProviderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6341DC352053EF5100D36D2C /* TartuWeatherProvider-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6341DC3B2053EF5100D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-tvOS" */;
+			buildPhases = (
+				6341DC312053EF5100D36D2C /* Sources */,
+				6341DC322053EF5100D36D2C /* Frameworks */,
+				6341DC332053EF5100D36D2C /* Headers */,
+				6341DC342053EF5100D36D2C /* Resources */,
+				6341DC4C2053EF8B00D36D2C /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TartuWeatherProvider-tvOS";
+			productName = "TartuWeatherProvider-tvOS";
+			productReference = 6341DC362053EF5100D36D2C /* TartuWeatherProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6341DC522053F01A00D36D2C /* TartuWeatherProvider-macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6341DC582053F01A00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-macOS" */;
+			buildPhases = (
+				6341DC4E2053F01A00D36D2C /* Sources */,
+				6341DC4F2053F01A00D36D2C /* Frameworks */,
+				6341DC502053F01A00D36D2C /* Headers */,
+				6341DC512053F01A00D36D2C /* Resources */,
+				6341DC5B2053F03500D36D2C /* Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TartuWeatherProvider-macOS";
+			productName = TartuWeatherProvider;
+			productReference = 6341DC532053F01A00D36D2C /* TartuWeatherProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		6341DC6D2053F0DC00D36D2C /* TartuWeatherProvider-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6341DC732053F0DC00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-watchOS" */;
+			buildPhases = (
+				6341DC692053F0DC00D36D2C /* Sources */,
+				6341DC6A2053F0DC00D36D2C /* Frameworks */,
+				6341DC6B2053F0DC00D36D2C /* Headers */,
+				6341DC6C2053F0DC00D36D2C /* Resources */,
+				6341DC762053F10300D36D2C /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TartuWeatherProvider-watchOS";
+			productName = "TartuWeatherProvider-watchOS";
+			productReference = 6341DC6E2053F0DC00D36D2C /* TartuWeatherProvider.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6341DBBA2053E49A00D36D2C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Kristaps Grinbergs";
+				TargetAttributes = {
+					6341DBC22053E49A00D36D2C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					6341DC072053E79300D36D2C = {
+						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
+						ProvisioningStyle = Automatic;
+					};
+					6341DC352053EF5100D36D2C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					6341DC522053F01A00D36D2C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					6341DC6D2053F0DC00D36D2C = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 6341DBBD2053E49A00D36D2C /* Build configuration list for PBXProject "TartuWeatherProvider" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6341DBB92053E49A00D36D2C;
+			productRefGroup = 6341DBC42053E49A00D36D2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6341DBC22053E49A00D36D2C /* TartuWeatherProvider-iOS */,
+				6341DC352053EF5100D36D2C /* TartuWeatherProvider-tvOS */,
+				6341DC522053F01A00D36D2C /* TartuWeatherProvider-macOS */,
+				6341DC6D2053F0DC00D36D2C /* TartuWeatherProvider-watchOS */,
+				6341DC072053E79300D36D2C /* TartuWeatherProviderTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6341DBC12053E49A00D36D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC062053E79300D36D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC342053EF5100D36D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC512053F01A00D36D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC6C2053F0DC00D36D2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6341DC002053E6E400D36D2C /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftSoup.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6341DC4C2053EF8B00D36D2C /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/tvOS/SwiftSoup.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6341DC5B2053F03500D36D2C /* Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/SwiftSoup.framework",
+			);
+			name = Carthage;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6341DC762053F10300D36D2C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/watchOS/SwiftSoup.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		6341DC772053F1C500D36D2C /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6341DBBE2053E49A00D36D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DBF32053E4F600D36D2C /* WeatherDataProtocol.swift in Sources */,
+				6341DBF52053E4F600D36D2C /* LiveImage.swift in Sources */,
+				6341DBF72053E4F600D36D2C /* QueryDataType.swift in Sources */,
+				6341DBF42053E4F600D36D2C /* WeatherData.swift in Sources */,
+				6341DBF92053E4F600D36D2C /* QueryDataProtocol.swift in Sources */,
+				6341DBF82053E4F600D36D2C /* LiveImageProtocol.swift in Sources */,
+				6341DBF62053E4F600D36D2C /* QueryData.swift in Sources */,
+				6341DBFB2053E4F600D36D2C /* TartuWeatherProvider.swift in Sources */,
+				6341DBFC2053E4F600D36D2C /* TartuWeatherResult.swift in Sources */,
+				6341DBF22053E4F600D36D2C /* MeasureDateable.swift in Sources */,
+				6341DBFD2053E4F600D36D2C /* TartuWeatherError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC042053E79300D36D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC812054644600D36D2C /* TartuWeatherProviderTests.swift in Sources */,
+				6341DC802054644600D36D2C /* ResultTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC312053EF5100D36D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC3F2053EF5A00D36D2C /* WeatherDataProtocol.swift in Sources */,
+				6341DC412053EF5A00D36D2C /* LiveImage.swift in Sources */,
+				6341DC432053EF5A00D36D2C /* QueryDataType.swift in Sources */,
+				6341DC402053EF5A00D36D2C /* WeatherData.swift in Sources */,
+				6341DC452053EF5A00D36D2C /* QueryDataProtocol.swift in Sources */,
+				6341DC442053EF5A00D36D2C /* LiveImageProtocol.swift in Sources */,
+				6341DC422053EF5A00D36D2C /* QueryData.swift in Sources */,
+				6341DC462053EF5A00D36D2C /* TartuWeatherProvider.swift in Sources */,
+				6341DC472053EF5A00D36D2C /* TartuWeatherResult.swift in Sources */,
+				6341DC3E2053EF5A00D36D2C /* MeasureDateable.swift in Sources */,
+				6341DC482053EF5A00D36D2C /* TartuWeatherError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC4E2053F01A00D36D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6341DC5D2053F07F00D36D2C /* WeatherDataProtocol.swift in Sources */,
+				6341DC5F2053F07F00D36D2C /* LiveImage.swift in Sources */,
+				6341DC612053F07F00D36D2C /* QueryDataType.swift in Sources */,
+				6341DC5E2053F07F00D36D2C /* WeatherData.swift in Sources */,
+				6341DC632053F07F00D36D2C /* QueryDataProtocol.swift in Sources */,
+				6341DC622053F07F00D36D2C /* LiveImageProtocol.swift in Sources */,
+				6341DC602053F07F00D36D2C /* QueryData.swift in Sources */,
+				6341DC642053F07F00D36D2C /* TartuWeatherProvider.swift in Sources */,
+				6341DC652053F07F00D36D2C /* TartuWeatherResult.swift in Sources */,
+				6341DC5C2053F07F00D36D2C /* MeasureDateable.swift in Sources */,
+				6341DC662053F07F00D36D2C /* TartuWeatherError.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6341DC692053F0DC00D36D2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6341DC0F2053E79300D36D2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6341DBC22053E49A00D36D2C /* TartuWeatherProvider-iOS */;
+			targetProxy = 6341DC0E2053E79300D36D2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6341DBC92053E49A00D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6341DBCA2053E49A00D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6341DBCC2053E49A00D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6341DBCD2053E49A00D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-iOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6341DC112053E79300D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				INFOPLIST_FILE = TartuWeatherProviderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6341DC122053E79300D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				INFOPLIST_FILE = TartuWeatherProviderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProviderTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6341DC3C2053EF5100D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.TartuWeatherProvider-tvOS";
+				PRODUCT_MODULE_NAME = TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		6341DC3D2053EF5100D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.TartuWeatherProvider-tvOS";
+				PRODUCT_MODULE_NAME = TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Release;
+		};
+		6341DC592053F01A00D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProvider;
+				PRODUCT_MODULE_NAME = TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		6341DC5A2053F01A00D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-macOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fassko.TartuWeatherProvider;
+				PRODUCT_MODULE_NAME = TartuWeatherProvider;
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		6341DC742053F0DC00D36D2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.TartuWeatherProvider-watchOS";
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Debug;
+		};
+		6341DC752053F0DC00D36D2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 3SGNZQGS68;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "$(PROJECT_DIR)/Sources/Info-watchOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.fassko.TartuWeatherProvider-watchOS";
+				PRODUCT_NAME = TartuWeatherProvider;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.2;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6341DBBD2053E49A00D36D2C /* Build configuration list for PBXProject "TartuWeatherProvider" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DBC92053E49A00D36D2C /* Debug */,
+				6341DBCA2053E49A00D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6341DBCB2053E49A00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DBCC2053E49A00D36D2C /* Debug */,
+				6341DBCD2053E49A00D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6341DC102053E79300D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProviderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DC112053E79300D36D2C /* Debug */,
+				6341DC122053E79300D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6341DC3B2053EF5100D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DC3C2053EF5100D36D2C /* Debug */,
+				6341DC3D2053EF5100D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6341DC582053F01A00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DC592053F01A00D36D2C /* Debug */,
+				6341DC5A2053F01A00D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6341DC732053F0DC00D36D2C /* Build configuration list for PBXNativeTarget "TartuWeatherProvider-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6341DC742053F0DC00D36D2C /* Debug */,
+				6341DC752053F0DC00D36D2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6341DBBA2053E49A00D36D2C /* Project object */;
+}
