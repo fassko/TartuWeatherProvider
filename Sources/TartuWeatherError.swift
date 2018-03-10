@@ -12,4 +12,7 @@ public enum TartuWeatherError: Error {
   
   /// Query data
   case queryData
+  
+  /// Error wrapper
+  case error(Error)
 }

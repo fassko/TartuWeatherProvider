@@ -8,21 +8,21 @@
 import Foundation
 
 /// Result type
-public enum TartuWeatherResult<Value> {
+public enum TartuWeatherResult<Value, E: Swift.Error> {
 
   /// Success
   case success(Value)
   
   /// Failure
-  case failure(Error)
+  case failure(E)
 
   /// Returns `true` if the result is a success, `false` otherwise.
   public var isSuccess: Bool {
     switch self {
-      case .success:
-        return true
-      case .failure:
-        return false
+    case .success:
+      return true
+    case .failure:
+      return false
     }
   }
 
@@ -34,20 +34,20 @@ public enum TartuWeatherResult<Value> {
   /// Returns the associated value if the result is a success, `nil` otherwise.
   public var value: Value? {
     switch self {
-      case .success(let value):
-        return value
-      case .failure:
-        return nil
+    case .success(let value):
+      return value
+    case .failure:
+      return nil
     }
   }
 
   /// Returns the associated error value if the result is a failure, `nil` otherwise.
   public var error: Error? {
     switch self {
-      case .success:
-        return nil
-      case .failure(let error):
-        return error
+    case .success:
+      return nil
+    case .failure(let error):
+      return error
     }
   }
 }

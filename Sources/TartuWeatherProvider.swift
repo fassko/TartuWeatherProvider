@@ -20,18 +20,20 @@ public struct TartuWeatherProvider {
       - data: Weather data struct
    
   */
-  public static func getWeatherData(completion: @escaping (_ result: TartuWeatherResult<WeatherData>) -> Void) {
+  public static func getWeatherData(
+    completion: @escaping (_ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void) {
   
     let url = URL(string: "http://meteo.physic.ut.ee/en/frontmain.php?m=2")!
-    URLSession.shared.dataTask(with: url) { data, response, error in
+    URLSession.shared.dataTask(with: url) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
-          completion(TartuWeatherResult.failure(error))
+          completion(TartuWeatherResult.failure(.error(error)))
         } else if let data = data {
           do {
             let htmlString = String(data: data, encoding: .utf8)
             let doc = try SwiftSoup.parse(htmlString!)
             
+            // swiftlint:disable line_length
             let temperature = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(1) > td:nth-child(2) > b").text()
             let humidity = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(2) > td:nth-child(2) > b").text()
             let airPressure = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(3) > td:nth-child(2) > b").text()
@@ -48,7 +50,7 @@ public struct TartuWeatherProvider {
             completion(TartuWeatherResult.success(weatherData))
             
           } catch {
-            completion(TartuWeatherResult.failure(error))
+            completion(TartuWeatherResult.failure(.error(error)))
           }
         }
       }
@@ -63,8 +65,40 @@ public struct TartuWeatherProvider {
       - data: Query data struct
    
   */
-  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData]>) -> Void) {
+  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void) {
     
+    let urlComponents = generateURLComponents(dataType: dataType)
+    
+    URLSession.shared.dataTask(with: urlComponents.url!) { data, _, error in
+      DispatchQueue.main.async {
+        if let error = error {
+          completion(TartuWeatherResult.failure(.error(error)))
+        } else if let data = data, let csvString = String(data: data, encoding: .utf8) {
+         
+          let lines = csvString.components(separatedBy: .newlines)
+          let rawData = Array(lines.map({
+            $0.components(separatedBy: ", ")
+          }).dropFirst().dropLast())
+          
+          let queryData = rawData.map({ dataItem -> QueryData in
+            QueryData(measuredTime: dataItem[0], temperature: dataItem[1], humidity: dataItem[2], airPressure: dataItem[3], wind: dataItem[4], windDirection: dataItem[5], precipitation: dataItem[6], uvIndex: dataItem[7], light: dataItem[8], irradiationFlux: dataItem[9], gammaRadiation: dataItem[10])
+          })
+          
+          completion(TartuWeatherResult.success(queryData))
+        }
+      }
+    }.resume()
+  }
+  
+  /**
+   Generate URL components from data type
+   
+   - Parameters:
+     - dataType: Query data type
+   
+   - Returns: Generated URL components
+  */
+  private static func generateURLComponents(dataType: QueryDataType) -> URLComponents {
     var urlComponents = URLComponents(string: "http://meteo.physic.ut.ee/en/archive.php")
     
     var end: Date
@@ -97,32 +131,9 @@ public struct TartuWeatherProvider {
       URLQueryItem(name: "14", value: "1"),
       URLQueryItem(name: "15", value: "1"),
       URLQueryItem(name: "16", value: "1"),
-      URLQueryItem(name: "17", value: "1"),
+      URLQueryItem(name: "17", value: "1")
     ]
     
-    guard let url = urlComponents?.url else {
-      completion(TartuWeatherResult.failure(TartuWeatherError.queryData))
-      return
-    }
-    
-    URLSession.shared.dataTask(with: url) { data, response, error in
-      DispatchQueue.main.async {
-        if let error = error {
-          completion(TartuWeatherResult.failure(error))
-        } else if let data = data, let csvString = String(data: data, encoding: .utf8) {
-         
-          let lines = csvString.components(separatedBy: .newlines)
-          let rawData = Array(lines.map({
-            $0.components(separatedBy: ", ")
-          }).dropFirst().dropLast())
-          
-          let queryData = rawData.map({ dataItem -> QueryData in
-            QueryData(measuredTime: dataItem[0], temperature: dataItem[1], humidity: dataItem[2], airPressure: dataItem[3], wind: dataItem[4], windDirection: dataItem[5], precipitation: dataItem[6], uvIndex: dataItem[7], light: dataItem[8], irradiationFlux: dataItem[9], gammaRadiation: dataItem[10])
-          })
-          
-          completion(TartuWeatherResult.success(queryData))
-        }
-      }
-    }.resume()
+    return urlComponents!
   }
 }

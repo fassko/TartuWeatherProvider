@@ -1,9 +1,16 @@
-osx_image: xcode9
+osx_image: xcode9.2
 language: objective-c
 before_install:
-  - sudo systemsetup -settimezone Europe/Tallinn
+  - brew update
+  - brew outdated carthage || brew upgrade carthage
+  - carthage update --platform iOS
+  - brew outdated swiftlint || brew upgrade swiftlint
   - gem install cocoapods
-  - pod install --project-directory=Example --repo-update
 script:
-- set -o pipefail && xcodebuild -workspace Example/TartuWeatherProvider.xcworkspace -scheme TartuWeatherProvider_Example -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+- set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-iOS -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+# - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-tvOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+# - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-watchOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+# - set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-macOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+- swift build
+- pod repo update
 - pod lib lint --verbose
