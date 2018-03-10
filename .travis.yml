@@ -1,10 +1,9 @@
-osx_image: xcode9
+osx_image: xcode9.2
 language: objective-c
 before_install:
   - sudo systemsetup -settimezone Europe/Tallinn
-  - brew update
+  - brew install carthage
   - brew outdated carthage || brew upgrade carthage
-  - carthage update
   - carthage update --platform iOS
   - brew install swiftlint
   - gem install cocoapods
