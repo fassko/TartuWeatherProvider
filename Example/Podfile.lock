@@ -1,19 +1,23 @@
 PODS:
-  - SwiftSoup (1.6.1)
-  - TartuWeatherProvider (0.3.3):
-    - SwiftSoup (~> 1.6)
+  - SwiftSoup (1.7.2)
+  - TartuWeatherProvider (0.4.0):
+    - SwiftSoup (~> 1.7)
 
 DEPENDENCIES:
   - TartuWeatherProvider (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - SwiftSoup
+
 EXTERNAL SOURCES:
   TartuWeatherProvider:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftSoup: 1eedf56f751b36035ae6c95562f86944c9cfafee
-  TartuWeatherProvider: 5d414e28b60672768f24b72f32eda98d799671b1
+  SwiftSoup: e5f61d37e3d802a4b5db81b4945de3da9bfdf115
+  TartuWeatherProvider: 77c9be2281170c3d478fd90609adc98dd8414670
 
 PODFILE CHECKSUM: dc82442be6d9012790031a910b7a55b34db95304
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.6.0.beta.1
