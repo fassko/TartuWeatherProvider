@@ -3,7 +3,7 @@ language: objective-c
 before_install:
   - brew update
   - brew outdated carthage || brew upgrade carthage
-  - carthage update --platform iOS
+  - carthage update
   - brew outdated swiftlint || brew upgrade swiftlint
   - gem install cocoapods
 script:
