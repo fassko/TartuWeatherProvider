@@ -2,7 +2,7 @@ version: 2
 jobs:
   build-and-test:
     macos:
-      xcode: "9.2.0"
+      xcode: "10.0.0"
 
     steps:
       - checkout
@@ -26,12 +26,12 @@ jobs:
           name: SwiftPM Build
           command: swift build
 
-      # - run:
-      #     name: Build other platforms
-      #     command: |
-      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-tvOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
-      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-watchOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
-      #       set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-macOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+      - run:
+          name: Build other platforms
+          command: |
+            set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-tvOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+            set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-watchOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
+            set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-macOS CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean build | xcpretty
 
       - run:
           name: Update pods

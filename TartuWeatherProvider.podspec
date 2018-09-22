@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TartuWeatherProvider'
-  s.version          = '0.3.4'
+  s.version          = '0.4.0'
   s.summary          = 'Tartu weather provider from Tartu Physics faculty'
 
   s.description      = <<-DESC
@@ -21,5 +21,5 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
 
   s.framework = 'Foundation'
 
-  s.dependency 'SwiftSoup', '~> 1.6'
+  s.dependency 'SwiftSoup', '~> 1.7'
 end

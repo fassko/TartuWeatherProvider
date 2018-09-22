@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -10,7 +10,7 @@ let package = Package(
             targets: ["TartuWeatherProvider"])
     ],
     dependencies: [
-        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "1.6.2")
+        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "1.7.2")
     ],
     targets: [
         .target(
