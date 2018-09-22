@@ -36,8 +36,8 @@ jobs:
       - run:
           name: Update pods
           command: |
-            gem install cocoapods --pre
-            gem cleanup
+            sudo gem install cocoapods --pre
+            sudo gem cleanup
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
 
       - run:
