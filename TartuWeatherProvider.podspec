@@ -22,4 +22,6 @@ Tartu weather provider from Tartu Univerisety Physics faculty. http://meteo.phys
   s.framework = 'Foundation'
 
   s.dependency 'SwiftSoup', '~> 1.7'
+
+  s.swift_version = '4.2'
 end
