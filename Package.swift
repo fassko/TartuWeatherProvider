@@ -10,7 +10,7 @@ let package = Package(
             targets: ["TartuWeatherProvider"])
     ],
     dependencies: [
-        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "1.7.2")
+        .package(url: "https://github.com/scinfu/SwiftSoup.git", from: "1.7.4")
     ],
     targets: [
         .target(
