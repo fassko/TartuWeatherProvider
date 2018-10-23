@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TartuWeatherProvider'
-  s.version          = '0.4.2'
+  s.version          = '0.4.3'
   s.summary          = 'Tartu weather provider from Tartu Physics faculty'
 
   s.description      = <<-DESC
