@@ -9,17 +9,26 @@
 import Foundation
 import SwiftSoup
 
-/// Tartu Weather Provider
-public struct TartuWeatherProvider {
+public protocol TartuWeatherProviderProtocol {
+  /// Get weather data by parsing HTML
+  ///
+  /// - Parameter completion: Callback block when data is retrieved from server
+  static func getWeatherData(completion: @escaping (
+    _ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void)
+  
+  /// Get historical data for last day
+  ///
+  /// - Parameters:
+  ///   - dataType: Archive data type
+  ///   - completion: Callback block when data is retrieved from server
+  static func getArchiveData(
+    _ dataType: QueryDataType,
+    completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void)
+}
 
-  /**
-    Get weather data by parsing HTML
-    
-    - Parameters:
-      - completion: Callback block when data is retrieved from server
-      - data: Weather data struct
-   
-  */
+/// Tartu Weather Provider
+public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
+
   public static func getWeatherData(
     completion: @escaping (_ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void) {
   
@@ -57,14 +66,6 @@ public struct TartuWeatherProvider {
     }.resume()
   }
   
-  /**
-    Get historical data for last day
-   
-    - Parameters:
-      - completion: Callback block when data is retrieved from server
-      - data: Query data struct
-   
-  */
   public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void) {
     
     let urlComponents = generateURLComponents(dataType: dataType)
@@ -90,14 +91,10 @@ public struct TartuWeatherProvider {
     }.resume()
   }
   
-  /**
-   Generate URL components from data type
-   
-   - Parameters:
-     - dataType: Query data type
-   
-   - Returns: Generated URL components
-  */
+  /// Generate URL components from data type
+  ///
+  /// - Parameter dataType: Query data type
+  /// - Returns: Generated URL components
   private static func generateURLComponents(dataType: QueryDataType) -> URLComponents {
     var urlComponents = URLComponents(string: "http://meteo.physic.ut.ee/en/archive.php")
     
