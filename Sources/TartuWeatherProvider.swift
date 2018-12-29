@@ -33,7 +33,9 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
     completion: @escaping (_ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void) {
   
     let url = URL(string: "http://meteo.physic.ut.ee/en/frontmain.php?m=2")!
-    URLSession.shared.dataTask(with: url) { data, _, error in
+    let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
+    
+    URLSession.shared.dataTask(with: request) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
           completion(TartuWeatherResult.failure(.error(error)))
@@ -69,8 +71,9 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
   public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void) {
     
     let urlComponents = generateURLComponents(dataType: dataType)
+    let request = URLRequest(url: urlComponents.url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
     
-    URLSession.shared.dataTask(with: urlComponents.url!) { data, _, error in
+    URLSession.shared.dataTask(with: request) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
           completion(TartuWeatherResult.failure(.error(error)))
