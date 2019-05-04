@@ -13,23 +13,23 @@ public protocol MeasureDateable {}
 public extension MeasureDateable where Self == WeatherData {
   
   /// Measured date
-  public var measuredDate: Date? {
+  var measuredDate: Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.timeZone = TimeZone(abbreviation: "EET")
     dateFormatter.dateFormat = "dd MMM yy HH:mm:ss"
     
-    return dateFormatter.date(from: measuredTime)
+    return dateFormatter.date(from: self.measuredTime)
   }
 }
 
 public extension MeasureDateable where Self == QueryData {
   
   /// Measured date
-  public var measuredDate: Date? {
+  var measuredDate: Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.timeZone = TimeZone(abbreviation: "EET")
     dateFormatter.dateFormat = "yyyy-mm-dd HH:mm:ss"
     
-    return dateFormatter.date(from: measuredTime)
+    return dateFormatter.date(from: self.measuredTime)
   }
 }
