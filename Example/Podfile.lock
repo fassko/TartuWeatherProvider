@@ -1,7 +1,7 @@
 PODS:
-  - SwiftSoup (1.7.4)
-  - TartuWeatherProvider (0.5.1):
-    - SwiftSoup (~> 1.7)
+  - SwiftSoup (2.2.0)
+  - TartuWeatherProvider (0.5.2):
+    - SwiftSoup (~> 2.2)
 
 DEPENDENCIES:
   - TartuWeatherProvider (from `../`)
@@ -15,8 +15,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
-  TartuWeatherProvider: f6e137ce3f6bcc592b6d594c0c9f58d8910463d0
+  SwiftSoup: 230991361c5ba249d140161860a3864a28b63860
+  TartuWeatherProvider: 9661171a5c0eb720bb6d41232e4d3050ac8f6122
 
 PODFILE CHECKSUM: 67846b1b2d83a3a004b18eb407c2dafaff0a8ad0
 
