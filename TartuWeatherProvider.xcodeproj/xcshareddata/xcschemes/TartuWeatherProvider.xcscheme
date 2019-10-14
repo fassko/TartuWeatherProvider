@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6341DC352053EF5100D36D2C"
+               BlueprintIdentifier = "6341DBC22053E49A00D36D2C"
                BuildableName = "TartuWeatherProvider.framework"
-               BlueprintName = "TartuWeatherProvider-tvOS"
+               BlueprintName = "TartuWeatherProvider"
                ReferencedContainer = "container:TartuWeatherProvider.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,11 +26,31 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "6341DBC22053E49A00D36D2C"
+            BuildableName = "TartuWeatherProvider.framework"
+            BlueprintName = "TartuWeatherProvider"
+            ReferencedContainer = "container:TartuWeatherProvider.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES"
+            testExecutionOrdering = "random">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6341DC072053E79300D36D2C"
+               BuildableName = "TartuWeatherProviderTests.xctest"
+               BlueprintName = "TartuWeatherProviderTests"
+               ReferencedContainer = "container:TartuWeatherProvider.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -45,14 +65,12 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6341DC352053EF5100D36D2C"
+            BlueprintIdentifier = "6341DBC22053E49A00D36D2C"
             BuildableName = "TartuWeatherProvider.framework"
-            BlueprintName = "TartuWeatherProvider-tvOS"
+            BlueprintName = "TartuWeatherProvider"
             ReferencedContainer = "container:TartuWeatherProvider.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -63,9 +81,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6341DC352053EF5100D36D2C"
+            BlueprintIdentifier = "6341DBC22053E49A00D36D2C"
             BuildableName = "TartuWeatherProvider.framework"
-            BlueprintName = "TartuWeatherProvider-tvOS"
+            BlueprintName = "TartuWeatherProvider"
             ReferencedContainer = "container:TartuWeatherProvider.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

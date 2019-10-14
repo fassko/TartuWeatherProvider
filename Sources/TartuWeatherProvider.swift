@@ -14,7 +14,7 @@ public protocol TartuWeatherProviderProtocol {
   ///
   /// - Parameter completion: Callback block when data is retrieved from server
   static func getWeatherData(completion: @escaping (
-    _ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void)
+    _ result: Result<WeatherData, TartuWeatherError>) -> Void)
   
   /// Get historical data for last day
   ///
@@ -23,14 +23,14 @@ public protocol TartuWeatherProviderProtocol {
   ///   - completion: Callback block when data is retrieved from server
   static func getArchiveData(
     _ dataType: QueryDataType,
-    completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void)
+    completion: @escaping (_ result: Result<[QueryData], TartuWeatherError>) -> Void)
 }
 
 /// Tartu Weather Provider
 public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
 
   public static func getWeatherData(
-    completion: @escaping (_ result: TartuWeatherResult<WeatherData, TartuWeatherError>) -> Void) {
+    completion: @escaping (_ result: Result<WeatherData, TartuWeatherError>) -> Void) {
   
     let url = URL(string: "http://meteo.physic.ut.ee/en/frontmain.php?m=2")!
     let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
@@ -38,7 +38,7 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
     URLSession.shared.dataTask(with: request) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
-          completion(TartuWeatherResult.failure(.error(error)))
+          completion(.failure(.error(error)))
         } else if let data = data {
           do {
             let htmlString = String(data: data, encoding: .utf8)
@@ -51,24 +51,24 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
             let wind = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(4) > td:nth-child(2) > b").text()
             let precipitation = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(5) > td:nth-child(2) > b").text()
             let irradiationFlux = try String(doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(6) > td:nth-child(2) > b").text().dropLast()) + "^2"
-            let measuredTime = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(7) > td:nth-child(2) > small > i").text()
+            let measuredTime = try doc.select("body > table:nth-child(1) > tbody > tr > td > table > tbody > tr:nth-child(1) > td > table > tbody > tr > td:nth-child(2) > table > tbody > tr:nth-child(6) > td:nth-child(2) > small > i").text()
             
             let smallImageURL = "http://meteo.physic.ut.ee/webcam/uus/pisike.jpg"
             let largeImageURL = "http://meteo.physic.ut.ee/webcam/uus/suur.jpg"
             
             let weatherData = WeatherData(temperature: temperature, humidity: humidity, airPressure: airPressure, wind: wind, precipitation: precipitation, irradiationFlux: irradiationFlux, measuredTime: measuredTime, smallImageURL: smallImageURL, largeImageURL: largeImageURL)
             
-            completion(TartuWeatherResult.success(weatherData))
+            completion(.success(weatherData))
             
           } catch {
-            completion(TartuWeatherResult.failure(.error(error)))
+            completion(.failure(.error(error)))
           }
         }
       }
     }.resume()
   }
   
-  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: TartuWeatherResult<[QueryData], TartuWeatherError>) -> Void) {
+  public static func getArchiveData(_ dataType: QueryDataType, completion: @escaping (_ result: Result<[QueryData], TartuWeatherError>) -> Void) {
     
     let urlComponents = generateURLComponents(dataType: dataType)
     let request = URLRequest(url: urlComponents.url!, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 60)
@@ -76,7 +76,7 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
     URLSession.shared.dataTask(with: request) { data, _, error in
       DispatchQueue.main.async {
         if let error = error {
-          completion(TartuWeatherResult.failure(.error(error)))
+          completion(.failure(.error(error)))
         } else if let data = data, let csvString = String(data: data, encoding: .utf8) {
          
           let lines = csvString.components(separatedBy: .newlines)
@@ -88,7 +88,7 @@ public struct TartuWeatherProvider: TartuWeatherProviderProtocol {
             QueryData(measuredTime: dataItem[0], temperature: dataItem[1], humidity: dataItem[2], airPressure: dataItem[3], wind: dataItem[4], windDirection: dataItem[5], precipitation: dataItem[6], uvIndex: dataItem[7], light: dataItem[8], irradiationFlux: dataItem[9], gammaRadiation: dataItem[10])
           })
           
-          completion(TartuWeatherResult.success(queryData))
+          completion(.success(queryData))
         }
       }
     }.resume()
