@@ -2,17 +2,10 @@ version: 2
 jobs:
   build-and-test:
     macos:
-      xcode: "10.2.0"
+      xcode: "11.1.0"
 
     steps:
       - checkout
-
-      - run:
-          name: Carthage
-          command: |
-            brew update
-            brew outdated carthage || brew upgrade carthage
-            carthage update
 
       - run:
           name: Install Swiftlint
@@ -20,7 +13,7 @@ jobs:
 
       - run:
           name: Test and build iOS
-          command: set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider-iOS -destination 'platform=iOS Simulator,name=iPhone X' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
+          command: set -o pipefail && xcodebuild -project TartuWeatherProvider.xcodeproj -scheme TartuWeatherProvider -destination 'platform=iOS Simulator,name=iPhone 11 Pro' CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO clean test build | xcpretty
 
       - run:
           name: SwiftPM Build
@@ -34,7 +27,7 @@ jobs:
       - run:
           name: Update pods
           command: |
-            sudo gem install cocoapods --pre
+            sudo gem install cocoapods
             sudo gem cleanup
             curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
 

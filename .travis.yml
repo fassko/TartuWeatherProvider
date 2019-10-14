@@ -1,11 +1,9 @@
-osx_image: xcode10.2
+osx_image: xcode11.1
 language: objective-c
 before_install:
   - brew update
-  - brew outdated carthage || brew upgrade carthage
-  - carthage update
   - brew outdated swiftlint || brew upgrade swiftlint
-  - gem install cocoapods --pre
+  - gem install cocoapods
   - gem cleanup
 script:
 - ./build.sh
